@@ -19,6 +19,7 @@ mutation loginUser( $email: String!, $password: String! ) {
       email
       role
       token
+      fullName
       _id
   }
 }
@@ -48,6 +49,7 @@ function Login() {
       console.log('Logged in as:', data.loginUser);
       sessionStorage.setItem("email", data.loginUser.email);
       sessionStorage.setItem("role", data.loginUser.role);
+      sessionStorage.setItem("fullName", data.loginUser.fullName);
 
       setAuthToken(data.loginUser.token);
       setAuthUserToken(data.loginUser.email);
@@ -104,7 +106,7 @@ function Login() {
                     type="submit"
                     color="primary"
                     variant="contained"
-                    class="button"
+                    className="button"
                     disabled={loading}>
                     {loading ? 'Logging in...' : 'Login'}
                   </Button>

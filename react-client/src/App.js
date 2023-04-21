@@ -172,6 +172,7 @@ function App() {
                           <Nav.Link className='ms-auto'as={Link} to="/tips" > <FontAwesomeIcon icon={faComment} /> Tip List</Nav.Link>
                           <Nav.Link className='ms-auto'as={Link} to="/symptoms" > <FontAwesomeIcon icon={faBell} /> Create Symptoms</Nav.Link>
                           <Nav.Link className='ms-auto'as={Link} to="/fitness" > <FontAwesomeIcon icon={faDumbbell} /> Fitness</Nav.Link>
+                          <Nav.Link className='ms-auto'as={Link} to="/vitals/:fullName" > <FontAwesomeIcon icon={faVial} /> View Vitals</Nav.Link>
                         </Fragment>
                       }
                       <div className={`nav-link`} style={{ cursor: "pointer" }} onClick={() => logout()}> Logout {user_email} ({user_role}) </div>
@@ -199,7 +200,7 @@ function App() {
             <Route path="/symptoms" element={<CreateSymptom />} />
             <Route path="/fitness" element={<Game />} />
             <Route path="/patients" element={<Patients />} />
-            <Route path="/vitals/:firstName/:lastName" element={<UserVitals />} />
+            <Route path="/vitals/:fullName" element={<UserVitals />} />
             <Route path="/add-covid" element={<CreateSymptom />} />
             <Route path="/checkup" element={<Checkup />} />
             <Route path="/create/record/:patientIdnew" element={<CreateVital nurseId={data} />} />

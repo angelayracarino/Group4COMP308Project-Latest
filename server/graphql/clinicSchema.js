@@ -176,6 +176,7 @@ const PayloadType = new GraphQLObjectType({
     _id: { type: GraphQLID },
     email: { type: GraphQLString },
     role: { type: GraphQLString },
+    fullName: { type: GraphQLString },
     token: { type: GraphQLString }
   })
 });
@@ -470,7 +471,7 @@ const mutation = new GraphQLObjectType({
             else {
               // sign the given payload (arguments of sign method) into a JSON Web Token 
               // and which expires 300 seconds after issue
-              const token = jwt.sign({ _id: userInfo._id, email: userInfo.email, role: userInfo.role }, JWT_SECRET,
+              const token = jwt.sign({ _id: userInfo._id, email: userInfo.email, role: userInfo.role, fullName: userInfo.firstName + ' ' + userInfo.lastName }, JWT_SECRET,
                 { algorithm: 'HS256', expiresIn: jwtExpirySeconds });
               console.log('registered token:', token)
 
@@ -483,6 +484,7 @@ const mutation = new GraphQLObjectType({
                 email: userInfo.email,
                 role: userInfo.role,
                 token: token,
+                fullName: userInfo.firstName + ' ' + userInfo.lastName
               }
               console.log(payload);
               return payload;

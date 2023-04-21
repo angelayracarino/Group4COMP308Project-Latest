@@ -41,9 +41,10 @@ const DELETE_VITALS = gql`
 
 const VitalList = (prop) => {
     const { firstName, lastName } = useParams();
+    const fullName = sessionStorage.getItem("fullName");
     const { loading, error, data, refetch } = useQuery(GET_VITALS, {
         variables: {
-            patientName: firstName
+            patientName: fullName
         }
     });
 
@@ -52,7 +53,7 @@ const VitalList = (prop) => {
     });
 
     useEffect(() => {
-        console.log(firstName + " " + lastName);
+        console.log(fullName);
 
         refetch();
     }, [refetch]);
@@ -78,7 +79,7 @@ const VitalList = (prop) => {
                         <Button
                             color="primary"
                             variant="contained"
-                            class="button"
+                            className="button"
                         > Add Vital </Button>
                     </Link>
                 </Box>
@@ -97,7 +98,7 @@ const VitalList = (prop) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {data.vitals.filter(vital => vital.patient === `${firstName} ${lastName}`).map((vital) => (
+                        {data.vitals.filter(vital => vital.patient === `${fullName}`).map((vital) => (
                             <tr key={vital._id}>
                                 <td>{vital.bodyTemperature}</td>
                                 <td>{vital.heartRate}</td>
