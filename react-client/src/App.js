@@ -41,7 +41,6 @@ import {
   useAuthRole,
   useLogout
 } from "./auth/auth";
-import CreateSymptom from './components/CreateSymptom';
 import Checkup from './components/Checkup';
 
 //
@@ -158,14 +157,13 @@ function App() {
                     <Fragment>
                       {isNurse() ?
                         <Fragment>
-                          <Nav.Link className='ms-auto'as={Link} to="/patients" > <FontAwesomeIcon icon={faHospitalUser} /> Patients</Nav.Link>
-                          <Nav.Link className='ms-auto'as={Link} to="/alerts" > <FontAwesomeIcon icon={faBell} /> Alert List</Nav.Link>
                           <Nav.Link className='ms-auto'as={Link} to="/add-tip" > <FontAwesomeIcon icon={faComment} /> Create Tip</Nav.Link>
                           <Nav.Link className='ms-auto'as={Link} to="/add-vitals" > <FontAwesomeIcon icon={faVial} /> Create Vitals</Nav.Link>
-                          <Nav.Link className='ms-auto'as={Link} to="/vitals" > <FontAwesomeIcon icon={faVial} /> Vitals List</Nav.Link>
-                          <Nav.Link className='ms-auto'as={Link} to="/tips" > <FontAwesomeIcon icon={faComment} /> Create Tip</Nav.Link>
-                          {/* <Nav.Link className='ms-auto'as={Link} to="/add-vitals" > <FontAwesomeIcon icon={faVial} /> Create Vitals</Nav.Link> */}
+                          <Nav.Link className='ms-auto'as={Link} to="/patients" > <FontAwesomeIcon icon={faHospitalUser} /> Patients</Nav.Link>
+                          <Nav.Link className='ms-auto'as={Link} to="/alerts" > <FontAwesomeIcon icon={faBell} /> Alerts</Nav.Link>
                           <Nav.Link className='ms-auto'as={Link} to="/vitals" > <FontAwesomeIcon icon={faVial} /> Vitals</Nav.Link>
+                          <Nav.Link className='ms-auto'as={Link} to="/tips" > <FontAwesomeIcon icon={faComment} /> Tips</Nav.Link>
+                          {/* <Nav.Link className='ms-auto'as={Link} to="/add-vitals" > <FontAwesomeIcon icon={faVial} /> Create Vitals</Nav.Link> */}
                         </Fragment>
                         :
                         <Fragment>
@@ -174,8 +172,6 @@ function App() {
                           <Nav.Link className='ms-auto'as={Link} to="/tips" > <FontAwesomeIcon icon={faComment} /> Tip List</Nav.Link>
                           <Nav.Link className='ms-auto'as={Link} to="/symptoms" > <FontAwesomeIcon icon={faBell} /> Create Symptoms</Nav.Link>
                           <Nav.Link className='ms-auto'as={Link} to="/fitness" > <FontAwesomeIcon icon={faDumbbell} /> Fitness</Nav.Link>
-                          <Nav.Link as={Link} to="/fitness">Fitness</Nav.Link>
-                          <Nav.Link as={Link} to="/add-covid">COVID Test</Nav.Link>
                         </Fragment>
                       }
                       <div className={`nav-link`} style={{ cursor: "pointer" }} onClick={() => logout()}> Logout {user_email} ({user_role}) </div>
