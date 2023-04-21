@@ -7,26 +7,16 @@ const symptomTesting = require('../../symptom-testing.json');
 
 exports.trainAndPredict = function (req, res) {
     const {
-        fever,
-        cough,
-        fatigue,
-        headache,
-        loss_taste_smell,
-        sore_throat,
-        shortness_breath,
-        muscle_aches,
-        nausea_vomiting,
-        diarrhea,
-        runny_stuffy_nose,
-        chills,
-        to_doctor
+        body_temperature,
+        heart_rate,
+        respiratory_rate,
+        pulse_rate
     } = req.body;
 
-    const inputData = tf.tensor2d([[fever, cough, fatigue, headache, loss_taste_smell, sore_throat, shortness_breath, muscle_aches, nausea_vomiting, diarrhea, runny_stuffy_nose, chills]]);
+    const inputData = tf.tensor2d([[body_temperature, heart_rate, respiratory_rate, pulse_rate]]);
 
     const trainingData = tf.tensor2d(symptom.map(item => [
-        item.fever, item.cough, item.fatigue, item.headache, item.loss_taste_smell, item.sore_throat,
-        item.shortness_breath, item.muscle_aches, item.nausea_vomiting, item.diarrhea, item.runny_stuffy_nose, item.chills
+        item.body_temperature, item.heart_rate, item.respiratory_rate, item.pulse_rate
     ]));
 
     const outputData = tf.tensor2d(symptom.map(item => [
@@ -34,20 +24,19 @@ exports.trainAndPredict = function (req, res) {
     ]));
 
     const testingData = tf.tensor2d(symptom.map(item => [
-        item.fever, item.cough, item.fatigue, item.headache, item.loss_taste_smell, item.sore_throat,
-        item.shortness_breath, item.muscle_aches, item.nausea_vomiting, item.diarrhea, item.runny_stuffy_nose, item.chills
+        item.body_temperature, item.heart_rate, item.respiratory_rate, item.pulse_rate
     ]));
 
     const model = tf.sequential();
 
     model.add(tf.layers.dense({
-        inputShape: [12],
+        inputShape: [4],
         activation: "sigmoid",
-        units: 6,
+        units: 5,
     }));
 
     model.add(tf.layers.dense({
-        inputShape: [6],
+        inputShape: [5],
         activation: "sigmoid",
         units: 4,
     }));
@@ -76,7 +65,7 @@ exports.trainAndPredict = function (req, res) {
                         console.log(`Epoch ${epoch}: lossValue = ${log.loss}`);
                         elapsedTime = Date.now() - startTime;
                         console.log('elapsed time: ' + elapsedTime)
-                        console.log(fever, cough, fatigue, headache, loss_taste_smell, sore_throat, shortness_breath, muscle_aches, nausea_vomiting, diarrhea, runny_stuffy_nose, chills);
+                        console.log(body_temperature, heart_rate, respiratory_rate, pulse_rate);
                     }
                 }
             }
@@ -85,10 +74,12 @@ exports.trainAndPredict = function (req, res) {
         const results = model.predict(testingData);
 
         results.array().then(array => {
-            console.log(array)
-            var resultForData1 = array[0];
-            var dataToSent = { to_doctor: resultForData1 > 0.5 ? "yes" : "no" };
+            console.log(array[0][0])
+            var resultForData1 = array[0][0] >= 0.5 ? "yes" : "no";
+            var dataToSent = { row1: resultForData1 }
             console.log(resultForData1)
+            console.log(dataToSent)
+            console.log(body_temperature, heart_rate, respiratory_rate, pulse_rate)
             res.status(200).send(dataToSent);
         })
     }

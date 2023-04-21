@@ -41,6 +41,7 @@ import {
   useLogout
 } from "./auth/auth";
 import CreateSymptom from './components/CreateSymptom';
+import Checkup from './components/Checkup';
 
 //
 function App() {
@@ -197,6 +198,7 @@ function App() {
             <Route path="/patients" element={<Patients />} />
             <Route path="/vitals/:firstName/:lastName" element={<UserVitals />} />
             <Route path="/add-covid" element={<CreateSymptom />} />
+            <Route path="/checkup" element={<Checkup />} />
             <Route path="/create/record/:patientIdnew" element={<CreateVital nurseId={data} />} />
           </Routes>
         </div>
