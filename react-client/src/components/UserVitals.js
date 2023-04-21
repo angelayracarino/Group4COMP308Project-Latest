@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { gql, useQuery, useMutation } from "@apollo/client";
+import { useAuthToken, useAuthUserToken, useAuthRole } from "../auth/auth";
 //import ListGroup from 'react-bootstrap/ListGroup';
 import Table from 'react-bootstrap/Table';
 //import Button from 'react-bootstrap/Button';
@@ -40,7 +41,10 @@ const DELETE_VITALS = gql`
 `;
 
 const VitalList = (prop) => {
-    const { firstName, lastName } = useParams();
+    const [authUserToken] = useAuthUserToken();
+    const [authRole] = useAuthRole();
+    const [content, setContent] = useState("");
+
     const fullName = sessionStorage.getItem("fullName");
     const { loading, error, data, refetch } = useQuery(GET_VITALS, {
         variables: {
@@ -54,9 +58,11 @@ const VitalList = (prop) => {
 
     useEffect(() => {
         console.log(fullName);
-
+        if (authUserToken && authRole) {
+            setContent(authUserToken);
+        }
         refetch();
-    }, [refetch]);
+    }, [authUserToken, authRole]);
 
     const handleDelete = (id) => {
         if (window.confirm('Are you sure you want to delete this vital?')) {
@@ -67,7 +73,7 @@ const VitalList = (prop) => {
     if (loading) return <p>Loading...</p>;
     if (error) {
         console.error(error);
-        return <p>Error : ${error.message}(</p>;
+        return <p>Error : ${error.message}</p>;
     }
 
     return (
@@ -109,8 +115,19 @@ const VitalList = (prop) => {
                                 <td>{vital.time}</td>
                                 <td>{vital.patient}</td>
                                 <td>
+                                <>
+                                { content && authRole === "nurse" ? (
+                                <div>
                                     <Button variant="danger" onClick={() => handleDelete(vital._id)}>Delete</Button>
                                     <Link to={`/edit-vital/${vital._id}`}><Button variant="primary">Edit</Button></Link>
+                                </div>
+
+                                ) : (
+                                    <div>
+                                        <Link to={`/edit-vital/${vital._id}`}><Button variant="primary">Edit</Button></Link>
+                                    </div>
+                                )}
+                                </>
                                 </td>
                             </tr>
                         ))}

@@ -103,7 +103,6 @@ const FitnessGame = () => {
     };
 
     return (
-<<<<<<<<< Temporary merge branch 1
         <div className="game-container">
             {!startGame && !gameOver && (
                 <Button variant="success" size="lg" onClick={handleStartGame}>
@@ -162,11 +161,11 @@ const FitnessGame = () => {
                     </Button>
                 </div>
             )}
-=========
+
         <div>
             <div>
           <img src={fit1} alt="Welcome Banner" className="fit1" />
->>>>>>>>> Temporary merge branch 2
+
         </div>
             <div className="game-container">
                 {!startGame && !gameOver && (
@@ -228,7 +227,7 @@ const FitnessGame = () => {
                 )}
             </div>
         </div>
-
+    </div>
     );
 };
 

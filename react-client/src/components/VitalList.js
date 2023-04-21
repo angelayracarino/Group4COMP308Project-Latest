@@ -109,7 +109,11 @@ const VitalList = () => {
                                 <td>
                                 <>
                                 { content && authRole === "nurse" ? (
-                                <Button variant="danger" onClick={() => handleDelete(vital._id)}>Delete</Button>
+                                <div>
+                                    <Button variant="danger" onClick={() => handleDelete(vital._id)}>Delete</Button>
+                                    <Link to={`/edit-vital/${vital._id}`}><Button variant="primary">Edit</Button></Link>
+                                </div>
+
                                 ) : (
                                     <div>
                                         <Link to={`/edit-vital/${vital._id}`}><Button variant="primary">Edit</Button></Link>

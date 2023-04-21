@@ -145,6 +145,7 @@ function EditVital(props) {
         event.preventDefault();
         navigate('/');
     }
+    
 
     return (
         <div className="entryform">
