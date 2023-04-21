@@ -84,7 +84,7 @@ function TipList() {
                                 { content && authRole === "nurse" ? (
                                 <th>Actions</th>
                                 ) : (
-                                    <div className="container">
+                                    <div>
                                     </div>
                                 )}
                             </>
@@ -102,7 +102,7 @@ function TipList() {
                                         <Link to={`/edit-tip/${tip._id}`}><Button variant="primary">Edit</Button></Link>
                                     </td>
                                     ) : (
-                                        <div className="container">
+                                        <div>
                                         </div>
                                 )}
                                 </>

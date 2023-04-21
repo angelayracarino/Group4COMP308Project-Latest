@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { gql, useQuery, useMutation } from "@apollo/client";
+import { useAuthToken, useAuthUserToken, useAuthRole } from "../auth/auth";
 //import ListGroup from 'react-bootstrap/ListGroup';
 import Table from 'react-bootstrap/Table';
 //import Button from 'react-bootstrap/Button';
@@ -40,14 +41,20 @@ const DELETE_VITALS = gql`
 `;
 
 const VitalList = () => {
+    const [authUserToken] = useAuthUserToken();
+    const [authRole] = useAuthRole();
+    const [content, setContent] = useState("");
+    
     const { loading, error, data, refetch } = useQuery(GET_VITALS);
     const [deleteVitals] = useMutation(DELETE_VITALS, {
         onCompleted: () => refetch()
     });
 
     useEffect(() => {
-        refetch();
-    }, [refetch]);
+        if (authUserToken && authRole) {
+            setContent(authUserToken);
+        }
+    }, [authUserToken, authRole]);
 
     const handleDelete = (id) => {
         if (window.confirm('Are you sure you want to delete this vital?')) {
@@ -100,8 +107,17 @@ const VitalList = () => {
                                 <td>{vital.time}</td>
                                 <td>{vital.patient}</td>
                                 <td>
-                                    <Button variant="danger" onClick={() => handleDelete(vital._id)}>Delete</Button>
-                                    <Link to={`/edit-vital/${vital._id}`}><Button variant="primary">Edit</Button></Link>
+                                <>
+                                { content && authRole === "nurse" ? (
+                                <Button variant="danger" onClick={() => handleDelete(vital._id)}>Delete</Button>
+                                ) : (
+                                    <div>
+                                        <Link to={`/edit-vital/${vital._id}`}><Button variant="primary">Edit</Button></Link>
+                                    </div>
+                                )}
+                            </>
+                                    
+                                    
                                 </td>
                             </tr>
                         ))}
