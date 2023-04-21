@@ -85,16 +85,6 @@ function CreateSymptom() {
                 time: time
             }
         })
-            .then(() => {
-                setSelectedSymptoms([]);
-                setPatient('');
-                setDate('');
-                setTime('');
-                navigate('/');
-            })
-            .catch((error) => {
-                console.log(error);
-            });
         .then(() => {
             setSelectedSymptoms([]);
             setPatient('');
