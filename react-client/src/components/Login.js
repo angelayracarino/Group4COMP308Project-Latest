@@ -4,7 +4,8 @@ import { gql, useMutation } from '@apollo/client';
 import { Box, Button, Container, FormControl, TextField } from '@mui/material';
 import { Row } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-
+import welcome from "../images/welcome.png";
+import user from "../images/user.png";
 import {
   useAuthToken,
   useAuthUserToken,
@@ -59,11 +60,18 @@ function Login() {
   };
 
   return (
-
+<div className="container">
+      <div className="span12 div-style">
+      <div>
+          <img src={welcome} alt="Welcome Banner" className="img-style" />
+        </div>
+  <br></br>
         <Container maxWidth="xs">
-          <Box sx={{ mt: 10, display: 'flex', flexWrap: 'wrap', border: '2px solid #a9acc9', borderRadius: '20px', padding: '15px' }}>
+        
+          <Box sx={{ mt: 0, flexWrap: 'wrap', border: '5px solid #d7baad', borderRadius: '20px', padding: '10px' }}>
+          <img src={user} alt="Welcome Banner" className="user" />
             <form autoComplete="off" noValidate onSubmit={handleSubmit}>
-              <FormControl sx={{ mt: 1 }} fullWidth>
+              <FormControl sx={{ mt: 0 }} fullWidth>
                 <TextField
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -89,7 +97,7 @@ function Login() {
               {loading ? <p style={{ color: 'blue' }}>Submitting</p> : <div></div>}
               {error ? <p style={{ color: 'red' }}>{error.message}</p> : <div></div>}
               <br />
-              <br />
+             
               <Box sx={{ mt: 2 }} style={{ display: 'flex', flexDirection: 'column', textAlign: 'center', width: '100%' }}>
                 <div>
                   <Button
@@ -101,9 +109,9 @@ function Login() {
                     {loading ? 'Logging in...' : 'Login'}
                   </Button>
                 </div>
-                <Box sx={{ mt: 1 }}>
+                <Box sx={{ mt: 0 }}>
                   <NavLink to={`/register`}>
-                    <span>Don't have an account?</span>
+                    <i><span>Don't have an account?</span></i>
                   </NavLink>
                 </Box>
               </Box>
@@ -111,6 +119,8 @@ function Login() {
           </Box>
           
         </Container>
+        </div>
+    </div>
   );
 }
 //
