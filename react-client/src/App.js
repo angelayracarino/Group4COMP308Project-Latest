@@ -31,6 +31,7 @@ import EditVital from './components/EditVital';
 import EditTip from './components/EditTip';
 import CreateAlert from './components/CreateAlert';
 import AlertList from './components/AlertList';
+import PatientList from './components/PatientList';
 import Game from './components/Game';
 import {
   useAuthToken,
@@ -153,7 +154,7 @@ function App() {
                     <Fragment>
                       {isNurse() ?
                         <Fragment>
-                           <Nav.Link className='ms-auto'as={Link} to="/patients" > <FontAwesomeIcon icon={faHospitalUser} /> Patients</Nav.Link>
+                           <Nav.Link className='ms-auto'as={Link} to="/patients" > <FontAwesomeIcon icon={faHospitalUser} /> Patients List</Nav.Link>
                           <Nav.Link className='ms-auto'as={Link} to="/alerts" > <FontAwesomeIcon icon={faBell} /> Alert List</Nav.Link>
                           <Nav.Link className='ms-auto'as={Link} to="/tips" > <FontAwesomeIcon icon={faComment} /> Create Tip</Nav.Link>
                           <Nav.Link className='ms-auto'as={Link} to="/add-vitals" > <FontAwesomeIcon icon={faVial} /> Create Vitals</Nav.Link>
@@ -181,6 +182,7 @@ function App() {
             <Route path="/home" element={< Home />} />
             <Route path="/login" element={< Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/patients" element={<PatientList />} />
             <Route path="/add-vitals" element={<CreateVital />} />
             <Route path="/vitals" element={<VitalList />} />
             <Route path="/edit-vital/:id" element={<EditVital />} />
