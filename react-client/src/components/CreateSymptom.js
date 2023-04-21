@@ -68,6 +68,7 @@ function CreateSymptom() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+    
         createSymptom({
             variables: {
                 selectedSymptom: selectedSymptoms,
@@ -77,16 +78,26 @@ function CreateSymptom() {
             }
         })
         .then(() => {
-        setSelectedSymptoms([]);
-        setPatient('');
-        setDate('');    
-        setTime('');
-        navigate('/');
+            setSelectedSymptoms([]);
+            setPatient('');
+            setDate('');    
+            setTime('');
+            navigate('/');
+            if (selectedSymptoms.includes('Fever') || 
+                selectedSymptoms.includes('Shortness of breath') || 
+                selectedSymptoms.includes('Nausea or vomiting') || 
+                selectedSymptoms.includes('Diarrhea')) {
+                alert('You have selected a symptom that could indicate a severe case of COVID-19. Please seek medical attention immediately.');
+            }
+            else{
+                alert('Your symptoms have been submitted. Please stay home and quarantine.');
+            }
         })
         .catch((error) => {
-        console.log(error);
+            console.log(error);
         });
     };
+    
 
     if (loading) return 'Submitting...';
     if (error) return `Submission error! ${error.message}`;
