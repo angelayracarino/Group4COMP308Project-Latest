@@ -168,6 +168,7 @@ function App() {
                           <Nav.Link className='ms-auto'as={Link} to="/add-alert" > <FontAwesomeIcon icon={faBell} /> Submit Alert</Nav.Link>
                           <Nav.Link className='ms-auto'as={Link} to="/tips" > <FontAwesomeIcon icon={faComment} /> Tip List</Nav.Link>
                           <Nav.Link as={Link} to="/fitness">Fitness</Nav.Link>
+                          <Nav.Link as={Link} to="/add-covid">COVID Test</Nav.Link>
                         </Fragment>
                       }
                       <div className={`nav-link`} style={{ cursor: "pointer" }} onClick={() => logout()}> Logout {user_email} ({user_role}) </div>
