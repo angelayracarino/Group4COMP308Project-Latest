@@ -6,6 +6,9 @@ import Table from 'react-bootstrap/Table';
 import Spinner from 'react-bootstrap/Spinner';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import './list.css';
+
 
 // alert graphql query
 const GET_ALERTS = gql`
@@ -54,6 +57,7 @@ function AlertList() {
     }
 
     return (    
+        <Container>
         <div className="alertList">
             <h1>Alert List</h1>
             <Table striped bordered hover>
@@ -85,6 +89,7 @@ function AlertList() {
                 </tbody>
             </Table>
         </div>
+        </Container>
     );
 }
 

@@ -29,6 +29,7 @@ function Home(props) {
 
                             </Carousel>
                             <br></br>
+                            <br></br>
                             <p className='p-header'>Allows for early detection and prevention of potential health problems, better management of chronic conditions</p>
                             <p className='p-header'>Improved overall health, and better communication with healthcare providers. </p>
                             <p className='p-header'>It helps individuals maintain good health and prevent more serious health issues from developing.</p>

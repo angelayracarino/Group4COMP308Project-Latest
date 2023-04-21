@@ -6,6 +6,8 @@ import Table from 'react-bootstrap/Table';
 import Spinner from 'react-bootstrap/Spinner';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import './list.css';
 
 const GET_VITALS = gql`
     query GetVitals {
@@ -54,6 +56,7 @@ const VitalList = () => {
     }
 
     return (
+        <Container>
         <div className="vitalList">
             <h1>Vital List</h1>
             <Table striped bordered hover>
@@ -90,6 +93,7 @@ const VitalList = () => {
                 </tbody>
             </Table>
         </div>
+       </Container>
     );
 };
 

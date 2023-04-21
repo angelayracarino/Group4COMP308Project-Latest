@@ -3,7 +3,15 @@ import React from 'react';
 import { gql, useMutation } from '@apollo/client';
 import Spinner from 'react-bootstrap/Spinner';
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+//import Button from 'react-bootstrap/Button';
+import { NavLink } from 'react-router-dom';
+import { 
+    Box, 
+    Button,
+    Container,
+    FormControl,
+    TextField,
+} from '@mui/material';
 //
 import { useNavigate } from 'react-router-dom';
 
@@ -56,7 +64,8 @@ const CreateVital = () => {
     if (error) return `Submission error! ${error.message}`;
 
     return (
-        <div className="entryform">
+        <Container maxWidth="xs">
+        <Box sx={{ mt: 1, display: 'flex', flexWrap: 'wrap' }}></Box>
             <form
                 onSubmit={e => {
                     e.preventDefault();
@@ -125,9 +134,18 @@ const CreateVital = () => {
                     <Form.Control type="text" placeholder="Enter patient" ref={node => { patient = node; }} />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">Submit</Button>
+                <Box sx={{mt: 2}} style={{display: 'flex', flexDirection: 'column', textAlign: 'center', width:'100%'}}>
+                    <div>
+                        <Button
+                            type="submit"
+                            color="primary"
+                            variant="contained"
+                            class="button"
+                        > Submit </Button>
+                    </div>
+                </Box>
             </form>
-        </div>
+        </Container>
     );
 };
 
