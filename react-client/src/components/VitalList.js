@@ -77,10 +77,11 @@ const VitalList = () => {
                         <Button
                             color="primary"
                             variant="contained"
-                            class="button"
+                            className="button"
                         > Add Vital </Button>
                     </Link>
                 </Box>
+                <br></br>
                 <Table striped bordered hover>
                     <thead>
                         <tr>

@@ -84,9 +84,9 @@ function UserList() {
                                 <td>{user.email}</td>
                                 <td>
                                 <Link to={{
-                                        pathname: `/vitals/${user.firstName + ' ' + user.lastName}`,
+                                        pathname: `/vitals/${user.firstName}/${user.lastName}`,
                                         state: {
-                                            fullName: user.firstName + ' ' + user.lastName
+                                            fullName: user.firstName + '' +  user.lastName
                                         }
                                     }}>
                                         <Button variant="contained" color="primary" >Vitals</Button>

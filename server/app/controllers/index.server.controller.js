@@ -62,7 +62,7 @@ exports.trainAndPredict = function (req, res) {
                 epochs: 100,
                 callbacks: {
                     onEpochEnd: async (epoch, log) => {
-                        console.log(`Epoch ${epoch}: lossValue = ${log.loss}`);
+                        // console.log(`Epoch ${epoch}: lossValue = ${log.loss}`);
                         elapsedTime = Date.now() - startTime;
                         console.log('elapsed time: ' + elapsedTime)
                         console.log(body_temperature, heart_rate, respiratory_rate, pulse_rate);

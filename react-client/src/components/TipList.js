@@ -66,15 +66,24 @@ function TipList() {
         <Container>
             <div className="tipList">
             <h1>Tip List</h1>
-                <Box sx={{ mt: 2 }} style={{ display: 'flex', flexDirection: 'column', textAlign: 'center', width: '100%' }}>
-                    <Link to={`/add-tip`}>
-                        <Button
-                            color="primary"
-                            variant="contained"
-                            class="button"
-                        > Add Tip </Button>
-                    </Link>
+            <>
+               { content && authRole === "nurse" ? (
+                 <Box sx={{ mt: 2 }} style={{ display: 'flex', flexDirection: 'column', textAlign: 'center', width: '100%' }}>
+                 <Link to={`/add-tip`}>
+                     <Button
+                         color="primary"
+                         variant="contained"
+                         className="button"
+                     > Add Tip </Button>
+                 </Link>
                 </Box>
+                 ) : (
+                
+                 <div>
+                 </div>
+                )}
+            </>
+                <br></br>
                 <Table striped bordered hover>
                     <thead>
                         <tr>

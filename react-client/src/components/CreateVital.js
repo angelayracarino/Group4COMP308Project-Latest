@@ -140,7 +140,7 @@ const CreateVital = () => {
                             type="submit"
                             color="primary"
                             variant="contained"
-                            class="button"
+                            className="button"
                         > Submit </Button>
                     </div>
                 </Box>

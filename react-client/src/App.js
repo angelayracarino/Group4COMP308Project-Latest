@@ -24,6 +24,7 @@ import Register from './components/Register';
 import Home from './components/Home';
 import UserProfile from './components/User';
 import CreateVital from './components/CreateVital';
+import NurseVitalInfo from './components/NurseVitalInfo';
 import CreateTip from './components/CreateTip';
 import VitalList from './components/VitalList';
 import TipList from './components/TipList';
@@ -164,6 +165,7 @@ function App() {
                           <Nav.Link className='ms-auto'as={Link} to="/alerts" > <FontAwesomeIcon icon={faBell} /> Alerts</Nav.Link>
                           <Nav.Link className='ms-auto'as={Link} to="/vitals" > <FontAwesomeIcon icon={faVial} /> Vitals</Nav.Link>
                           <Nav.Link className='ms-auto'as={Link} to="/tips" > <FontAwesomeIcon icon={faComment} /> Tips</Nav.Link>
+                          <Nav.Link className='ms-auto'as={Link} to="/checkup" > <FontAwesomeIcon icon={faVialCircleCheck} /> Checkup</Nav.Link>
                           {/* <Nav.Link className='ms-auto'as={Link} to="/add-vitals" > <FontAwesomeIcon icon={faVial} /> Create Vitals</Nav.Link> */}
                         </Fragment>
                         :
@@ -173,7 +175,7 @@ function App() {
                           <Nav.Link className='ms-auto'as={Link} to="/tips" > <FontAwesomeIcon icon={faComment} /> Tip List</Nav.Link>
                           <Nav.Link className='ms-auto'as={Link} to="/symptoms" > <FontAwesomeIcon icon={faBell} /> Create Symptoms</Nav.Link>
                           <Nav.Link className='ms-auto'as={Link} to="/fitness" > <FontAwesomeIcon icon={faDumbbell} /> Fitness</Nav.Link>
-                          <Nav.Link className='ms-auto'as={Link} to="/vitals/:fullName" > <FontAwesomeIcon icon={faVial} /> View Vitals</Nav.Link>
+                          <Nav.Link className='ms-auto'as={Link} to="/vitals-patient" > <FontAwesomeIcon icon={faVial} /> View Vitals</Nav.Link>
                         </Fragment>
                       }
                       <div className={`nav-link`} style={{ cursor: "pointer" }} onClick={() => logout()}> Logout {fullName} ({user_role}) </div>
@@ -201,8 +203,8 @@ function App() {
             <Route path="/symptoms" element={<CreateSymptom />} />
             <Route path="/fitness" element={<Game />} />
             <Route path="/patients" element={<Patients />} />
-            <Route path="/vitals/:fullName" element={<UserVitals />} />
-            <Route path="/vitals/:firstName/:lastName" element={<UserVitals />} />
+            <Route path="/vitals-patient" element={<UserVitals />} />
+            <Route path="/vitals/:firstName/:lastName" element={<NurseVitalInfo />} />
             <Route path="/add-covid" element={<CreateSymptom />} />
             <Route path="/checkup" element={<Checkup />} />
             <Route path="/create/record/:patientIdnew" element={<CreateVital nurseId={data} />} />
