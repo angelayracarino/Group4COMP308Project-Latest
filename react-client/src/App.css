@@ -1,0 +1,172 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.game-container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.exercise-name {
+  font-size: 24px;
+  margin-bottom: 1rem;
+}
+
+.time-remaining {
+  font-size: 18px;
+  margin-bottom: 0.5rem;
+}
+
+.exercise-counter {
+  font-size: 18px;
+  margin-bottom: 1rem;
+}
+
+.congratulations {
+  font-size: 24px;
+  margin-bottom: 1rem;
+}
+
+.total-exercises {
+  font-size: 18px;
+  margin-bottom: 1rem;
+}
+
+.jumbotron {
+  background: rgba(0, 0, 0, .5) url('../public/banner1.jpg');
+  color: #fff;
+  background-size: cover;
+  padding-top: 110px;
+  padding-bottom: 130px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: darken;
+  width: auto;
+  height: 670px;
+  margin: 0;
+}
+
+.jumbotron-login {
+ 
+  color: #fff;
+  background-size: cover;
+  background-blend-mode: darken;
+  width: auto;
+  height: 650px;
+  margin: 50px;
+}
+
+.footer {
+  margin-top: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  border-top: rgb(221, 221, 221) solid 0.5px;
+  border-bottom: rgb(221, 221, 221) solid 0.5px;
+  background-color: #d7baad;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 10px;
+}
+
+.navbar {
+  background-color: #d7baad;
+  color: #00007a;
+}
+
+.button {
+  background-color: #d7baad;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+h1 {
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+  text-size-adjust: 100%;
+}
+
+.ml-auto{
+  font-size: 15px white;
+}
+
+.column {
+  float: left;;
+}
+
+.carousel1{
+  width: 610px;
+  height: 290px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel2{
+  width: 900px;
+  height: 290px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}

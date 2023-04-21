@@ -1,0 +1,29 @@
+[
+    {
+        "body_temperature": 36.5,
+        "heart_rate": 78,
+        "systolic": 117,
+        "diastolic": 68,
+        "respiratoryRate": 13,
+        "pulseRate": 66,
+        "toDoctor": "no"
+    },
+    {
+        "body_temperature": 33.8806,
+        "heart_rate": 36,
+        "systolic": 89,
+        "diastolic": 41,
+        "respiratory_rate": 12,
+        "pulse_rate": 40,
+        "toDoctor": "yes"
+    },
+    {
+        "body_temperature": 32.0167,
+        "heart_rate": 58,
+        "systolic": 78,
+        "diastolic": 40,
+        "respiratory_rate": 13,
+        "pulse_rate": 100,
+        "toDoctor": "yes"
+    }
+]

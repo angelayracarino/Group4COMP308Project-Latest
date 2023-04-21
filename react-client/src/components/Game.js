@@ -1,0 +1,166 @@
+import React, { useState, useEffect } from 'react';
+import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import "../App.css";
+
+// Exercise data with name and duration
+const exercisesData = [
+    { name: 'Push-ups', duration: 30 },
+    { name: 'Jumping jacks', duration: 60 },
+    { name: 'Plank', duration: 45 },
+    { name: 'Squats', duration: 30 },
+    { name: 'Burpees', duration: 60 },
+];
+
+const messages = [
+    "Push yourself, because no one else is going to do it for you.",
+    "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+    "Don't watch the clock; do what it does. Keep going.",
+    "You don't have to be great to start, but you have to start to be great.",
+    "The only way to do great work is to love what you do.",
+    "The best way to predict the future is to create it.",
+    "You miss 100% of the shots you don't take.",
+    "The harder the battle, the sweeter the victory.",
+    "Don't stop when you're tired. Stop when you're done.", "You got this!",
+    "Keep pushing yourself!",
+    "Stay focused!",
+    "One step at a time!",
+    "Never give up!",
+    "Believe in yourself!",
+    "You can do it!",
+    "Stay motivated!",
+    "Push harder!",
+    "Make it happen!"
+];
+
+const FitnessGame = () => {
+    const [exerciseIndex, setExerciseIndex] = useState(0); // Index of current exercise
+    const [timeRemaining, setTimeRemaining] = useState(0); // Time remaining for current exercise
+    const [gameOver, setGameOver] = useState(false); // Game over state
+    const [startGame, setStartGame] = useState(false); // Start game state
+    const [isPaused, setIsPaused] = useState(false); // Pause game state
+    const [exerciseCounter, setExerciseCounter] = useState(0); // Exercise counter state
+    const [message, setMessage] = useState("");
+
+    const [currentMessage, setCurrentMessage] = useState("");
+
+    useEffect(() => {
+        let countdownTimer;
+
+        if (startGame && exerciseIndex < exercisesData.length && !gameOver && !isPaused) {
+            countdownTimer = setInterval(() => {
+                setTimeRemaining((prevTime) => prevTime - 1);
+            }, 1000);
+        }
+
+        if (timeRemaining === 0 && !gameOver) {
+            clearInterval(countdownTimer);
+            setExerciseCounter((prevCounter) => prevCounter + 1);
+            setExerciseIndex((prevIndex) => prevIndex + 1);
+            setTimeRemaining(exercisesData[exerciseIndex + 1]?.duration || 0);
+        }
+
+        if (exerciseIndex === exercisesData.length) {
+            setGameOver(true);
+        }
+
+        return () => {
+            clearInterval(countdownTimer);
+        };
+    }, [startGame, exerciseIndex, timeRemaining, gameOver, isPaused]);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            setMessage(messages[randomIndex]);
+        }, 10000);
+
+        return () => {
+            clearInterval(interval);
+        };
+    }, []);
+
+
+    const handleStartGame = () => {
+        setStartGame(true);
+        setTimeRemaining(exercisesData[0]?.duration || 0);
+    };
+
+    const handleStopGame = () => {
+        setIsPaused(true);
+    };
+
+    const handleResumeGame = () => {
+        setIsPaused(false);
+    };
+
+    const handleRestartGame = () => {
+        setStartGame(false);
+        setGameOver(false);
+        setExerciseIndex(0);
+        setTimeRemaining(0);
+        setIsPaused(false);
+        setExerciseCounter(0);
+    };
+
+    return (
+        <div className="game-container">
+            {!startGame && !gameOver && (
+                <Button variant="success" size="lg" onClick={handleStartGame}>
+                    Start Game
+                </Button>
+            )}
+            {startGame && !gameOver && !isPaused && (
+                <div className="game">
+                    <h1>{message}</h1>
+                    <h1 className="exercise-name">
+                        Exercise: {exercisesData[exerciseIndex]?.name}
+                    </h1>
+                    <h2 className="time-remaining">
+                        Time Remaining: {timeRemaining} seconds
+                    </h2>
+                    <h2 className="exercise-counter">
+                        Exercise Counter: {exerciseCounter} / {exercisesData.length}
+                    </h2>
+                    <Button variant="danger" size="lg" onClick={handleStopGame}>
+                        Stop
+                    </Button>
+                </div>
+            )}
+            {startGame && !gameOver && isPaused && (
+                <div className="game">
+                    <h1>{message}</h1>
+                    <h1 className="exercise-name">
+                        Exercise: {exercisesData[exerciseIndex]?.name}
+                    </h1>
+                    <h2 className="time-remaining">
+                        Time Remaining: {timeRemaining} seconds (Paused)
+                    </h2>
+                    <h2 className="exercise-counter">
+                        Exercise Counter: {exerciseCounter} / {exercisesData.length}
+                    </h2>
+                    <Button variant="warning" size="lg" onClick={handleResumeGame}>
+                        Resume
+                    </Button>
+                    <Button variant="primary" size="lg" onClick={handleRestartGame}>
+                        Restart Game
+                    </Button>
+                </div>
+            )}
+            {gameOver && (
+                <div className="game">
+                    <h1 className="congratulations">
+                        Congratulations! You've completed the fitness game!
+                    </h1>
+                    <h2 className="total-exercises">
+                        Total Exercises Completed: All {exercisesData.length} exercises!
+                    </h2>
+                    <Button variant="primary" size="lg" onClick={handleRestartGame}>
+                        Restart Game
+                    </Button>
+                </div>
+            )}
+        </div>
+    );
+};
+
+export default FitnessGame;
