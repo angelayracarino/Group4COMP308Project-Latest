@@ -10,7 +10,7 @@ import {
 import React, { useState, Fragment, useEffect } from 'react';
 import { gql, useQuery, useMutation } from '@apollo/client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAddressCard, faBell, faComment, faDumbbell, faHospitalUser, faHouse, faUser, faVial } from '@fortawesome/free-solid-svg-icons';
+import { faAddressCard, faBell, faComment, faDumbbell, faHospitalUser, faHouse, faUser, faVial, faVialCircleCheck } from '@fortawesome/free-solid-svg-icons';
 
 //
 // This app requires react-bootstrap and bootstrap installed: 
@@ -157,6 +157,7 @@ function App() {
                     <Fragment>
                       {isNurse() ?
                         <Fragment>
+<<<<<<< HEAD
                           <Nav.Link className='ms-auto'as={Link} to="/add-tip" > <FontAwesomeIcon icon={faComment} /> Create Tip</Nav.Link>
                           <Nav.Link className='ms-auto'as={Link} to="/add-vitals" > <FontAwesomeIcon icon={faVial} /> Create Vitals</Nav.Link>
                           <Nav.Link className='ms-auto'as={Link} to="/patients" > <FontAwesomeIcon icon={faHospitalUser} /> Patients</Nav.Link>
@@ -164,15 +165,28 @@ function App() {
                           <Nav.Link className='ms-auto'as={Link} to="/vitals" > <FontAwesomeIcon icon={faVial} /> Vitals</Nav.Link>
                           <Nav.Link className='ms-auto'as={Link} to="/tips" > <FontAwesomeIcon icon={faComment} /> Tips</Nav.Link>
                           {/* <Nav.Link className='ms-auto'as={Link} to="/add-vitals" > <FontAwesomeIcon icon={faVial} /> Create Vitals</Nav.Link> */}
+=======
+                          <Nav.Link className='ms-auto'as={Link} to="/patients" > <FontAwesomeIcon icon={faHospitalUser} /> Patients</Nav.Link>
+                          <Nav.Link className='ms-auto'as={Link} to="/alerts" > <FontAwesomeIcon icon={faBell} /> Alert List</Nav.Link>
+                          <Nav.Link className='ms-auto'as={Link} to="/add-tip" > <FontAwesomeIcon icon={faComment} /> Create Tip</Nav.Link>
+                          {/* <Nav.Link className='ms-auto'as={Link} to="/add-vitals" > <FontAwesomeIcon icon={faVial} /> Enter Vitals</Nav.Link> */}
+                          <Nav.Link className='ms-auto'as={Link} to="/vitals" > <FontAwesomeIcon icon={faVial} /> Vitals</Nav.Link>
+                          <Nav.Link className='ms-auto'as={Link} to="/checkup" > <FontAwesomeIcon icon={faVialCircleCheck} /> Checkup</Nav.Link>
+>>>>>>> origin/apple
                         </Fragment>
                         :
                         <Fragment>
-                          <Nav.Link className='ms-auto'as={Link} to="/add-vitals" > <FontAwesomeIcon icon={faVial} /> Enter Vitals</Nav.Link>
+                          <Nav.Link className='ms-auto'as={Link} to="/add-vitals" > <FontAwesomeIcon icon={faVial} /> Submit Vitals</Nav.Link>
                           <Nav.Link className='ms-auto'as={Link} to="/add-alert" > <FontAwesomeIcon icon={faBell} /> Submit Alert</Nav.Link>
                           <Nav.Link className='ms-auto'as={Link} to="/tips" > <FontAwesomeIcon icon={faComment} /> Tip List</Nav.Link>
+<<<<<<< HEAD
                           <Nav.Link className='ms-auto'as={Link} to="/symptoms" > <FontAwesomeIcon icon={faBell} /> Create Symptoms</Nav.Link>
                           <Nav.Link className='ms-auto'as={Link} to="/fitness" > <FontAwesomeIcon icon={faDumbbell} /> Fitness</Nav.Link>
                           <Nav.Link className='ms-auto'as={Link} to="/vitals/:fullName" > <FontAwesomeIcon icon={faVial} /> View Vitals</Nav.Link>
+=======
+                          <Nav.Link className='ms-auto'as={Link} to="/symptoms" > <FontAwesomeIcon icon={faBell} /> COVID Test</Nav.Link>
+                          <Nav.Link className='ms-auto'as={Link} to="/fitness" > <FontAwesomeIcon icon={faDumbbell} /> Fitness</Nav.Link>
+>>>>>>> origin/apple
                         </Fragment>
                       }
                       <div className={`nav-link`} style={{ cursor: "pointer" }} onClick={() => logout()}> Logout {user_email} ({user_role}) </div>
