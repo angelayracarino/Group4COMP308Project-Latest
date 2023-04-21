@@ -40,6 +40,7 @@ import {
   useAuthRole,
   useLogout
 } from "./auth/auth";
+import CreateSymptom from './components/CreateSymptom';
 
 //
 function App() {
@@ -133,7 +134,7 @@ function App() {
       <Router>
         <Navbar className='navbar' variant="light" expand="lg">
           <Container>
-            <Navbar.Brand href="home">
+            <Navbar.Brand href="/">
               <img
                 src="medical-nav.png"
                 width="120px"
@@ -163,8 +164,8 @@ function App() {
                         </Fragment>
                         :
                         <Fragment>
-                          <Nav.Link className='ms-auto'as={Link} to="/add-vitals" > <FontAwesomeIcon icon={faVial} /> Create Vitals</Nav.Link>
-                          <Nav.Link className='ms-auto'as={Link} to="/add-alert" > <FontAwesomeIcon icon={faBell} /> Create Alert</Nav.Link>
+                          <Nav.Link className='ms-auto'as={Link} to="/add-vitals" > <FontAwesomeIcon icon={faVial} /> Enter Vitals</Nav.Link>
+                          <Nav.Link className='ms-auto'as={Link} to="/add-alert" > <FontAwesomeIcon icon={faBell} /> Submit Alert</Nav.Link>
                           <Nav.Link className='ms-auto'as={Link} to="/tips" > <FontAwesomeIcon icon={faComment} /> Tip List</Nav.Link>
                           <Nav.Link as={Link} to="/fitness">Fitness</Nav.Link>
                         </Fragment>
@@ -194,6 +195,7 @@ function App() {
             <Route path="/fitness" element={<Game />} />
             <Route path="/patients" element={<Patients />} />
             <Route path="/vitals/:firstName/:lastName" element={<UserVitals />} />
+            <Route path="/add-covid" element={<CreateSymptom />} />
             <Route path="/create/record/:patientIdnew" element={<CreateVital nurseId={data} />} />
           </Routes>
         </div>
