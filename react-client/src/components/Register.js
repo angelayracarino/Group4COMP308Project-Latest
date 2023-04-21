@@ -117,7 +117,7 @@ const CreateUser = () => {
 				.then(() => {
 					toast.success('User Added');
                     console.log(firstName + ' ' + lastName, 'was successfully added!!!');
-                    //window.location.href = '/login';
+                    window.location.href = '/login';
 					clearState();
 				})
 				.catch((error) => {

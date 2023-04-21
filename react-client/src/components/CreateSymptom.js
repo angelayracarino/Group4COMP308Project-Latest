@@ -4,6 +4,7 @@ import { gql, useMutation } from '@apollo/client';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
 
 
 // Create a gql mutation for Symptom
@@ -36,10 +37,10 @@ function CreateSymptom() {
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
 
-    
+
     const [createSymptom, { data, loading, error }] = useMutation(
-      CREATE_SYMPTOM
-  );
+        CREATE_SYMPTOM
+    );
 
     const predefinedSymptom = [
         'Fever',
@@ -76,16 +77,16 @@ function CreateSymptom() {
                 time: time
             }
         })
-        .then(() => {
-        setSelectedSymptoms([]);
-        setPatient('');
-        setDate('');    
-        setTime('');
-        navigate('/');
-        })
-        .catch((error) => {
-        console.log(error);
-        });
+            .then(() => {
+                setSelectedSymptoms([]);
+                setPatient('');
+                setDate('');
+                setTime('');
+                navigate('/');
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     };
 
     if (loading) return 'Submitting...';
@@ -93,53 +94,58 @@ function CreateSymptom() {
 
 
     return (
-        <div className="entryform">
-            <form onSubmit={handleSubmit}>
-              <Form.Group>
-                    <Form.Label>Symptoms</Form.Label>
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    {predefinedSymptom.map((symptom, index) => (
-                        <Form.Check
-                            key={index}
-                            inline
-                            label={symptom}
-                            value={symptom}
-                            type="checkbox"
-                            checked={selectedSymptoms.includes(symptom)}
-                            onChange={handleCheckboxChange}
+        <Container maxWidth="xs">
+            <div className="entryform">
+                <form onSubmit={handleSubmit}>
+                    <Form.Group>
+                        <Form.Label>Symptoms</Form.Label>
+                        <div style={{ display: 'flex', flexDirection: 'column' }}>
+                            {predefinedSymptom.map((symptom, index) => (
+                                <Form.Check
+                                    key={index}
+                                    inline
+                                    label={symptom}
+                                    value={symptom}
+                                    type="checkbox"
+                                    checked={selectedSymptoms.includes(symptom)}
+                                    onChange={handleCheckboxChange}
+                                />
+                            ))}
+                        </div>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Patient Name</Form.Label>
+                        <Form.Control
+                            type="text"
+                            onChange={(e) => setPatient(e.target.value)}
+                            placeholder="Enter patient name"
                         />
-                    ))}
-                    </div>
-              </Form.Group>
-                <Form.Group>
-                    <Form.Label>Patient Name</Form.Label>
-                    <Form.Control
-                        type="text"
-                        onChange={(e) => setPatient(e.target.value)}
-                        placeholder="Enter patient name"
-                    />
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>Date</Form.Label>
-                    <Form.Control
-                        type="date"
-                        onChange={(e) => setDate(e.target.value)}
-                        placeholder="Enter date"
-                    />
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>Time</Form.Label>
-                    <Form.Control
-                        type="time"
-                        onChange={(e) => setTime(e.target.value)}
-                        placeholder="Enter time"
-                    />
-                </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
-            </form>
-        </div>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Date</Form.Label>
+                        <Form.Control
+                            type="date"
+                            onChange={(e) => setDate(e.target.value)}
+                            placeholder="Enter date"
+                        />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Time</Form.Label>
+                        <Form.Control
+                            type="time"
+                            onChange={(e) => setTime(e.target.value)}
+                            placeholder="Enter time"
+                        />
+                    </Form.Group>
+                    <Button
+                        type="submit"
+                        color="primary"
+                        variant="contained"
+                        class="button"
+                    > Submit </Button>
+                </form>
+            </div>
+        </Container>
     );
 }
 
