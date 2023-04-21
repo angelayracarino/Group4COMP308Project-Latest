@@ -51,10 +51,10 @@ function CreateAlert() {
     const [createAlert, { data, loading, error }] = useMutation(CREATE_ALERT);
     if (loading) return 'Submitting...';
     if (error) return `Submission error! ${error.message}`;
+
     return (
         <Container maxWidth="xs">
-        <div className="entryform">
-        <Box sx={{ mt: 5, display: 'flex', flexWrap: 'wrap' }}></Box>
+            <Box sx={{ mt: 1, display: 'flex', flexWrap: 'wrap' }}></Box>
             <form
                 onSubmit={e => {
                     e.preventDefault();
@@ -143,7 +143,8 @@ function CreateAlert() {
                         placeholder="Enter message"
                     />
                 </Form.Group>
-                <Box sx={{mt: 2}} style={{display: 'flex', flexDirection: 'column', textAlign: 'center', width:'100%'}}>
+
+                <Box sx={{ mt: 2 }} style={{ display: 'flex', flexDirection: 'column', textAlign: 'center', width: '100%' }}>
                     <div>
                         <Button
                             type="submit"
@@ -154,8 +155,10 @@ function CreateAlert() {
                     </div>
                 </Box>
             </form>
-        </div>
         </Container>
+
+
+
     );
 }
 

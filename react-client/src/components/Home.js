@@ -19,7 +19,7 @@ function Home(props) {
                 <Container>
                     <Row className="justify-content-center align-items-center">
                         <Col className="text-center">
-                            <Carousel>
+                        <Carousel interval={3000}>
                                 <Carousel.Item>
                                     <img src={car1} className="carousel1" />
                                 </Carousel.Item>

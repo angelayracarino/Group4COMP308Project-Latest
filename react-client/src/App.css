@@ -47,6 +47,14 @@
   
 }
 
+.exercise-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
 .game {
   display: flex;
   flex-direction: column;
@@ -93,6 +101,8 @@
   height: 670px;
   margin: 0;
 }
+
+
 
 .jumbotron-login {
  
@@ -168,4 +178,32 @@ h1 {
   margin: 0 auto;
   overflow: hidden;
   position: relative;
+}
+
+.fit1 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.img-style{
+  width: 30%;
+  height: 0%;
+  margin-bottom: 1px;
+}
+
+.user{
+  width: 70%;
+  height: 30%;
+  align-items: center;
+  margin-left: 50px;
+}
+
+.banner2{
+  width: 40%;
+  height: 40%;
+  padding-top: 50px;
+  position: relative;
+  margin-left: 150px;
+
 }

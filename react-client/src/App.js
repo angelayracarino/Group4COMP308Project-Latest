@@ -10,7 +10,7 @@ import {
 import React, { useState, Fragment, useEffect } from 'react';
 import { gql, useQuery, useMutation } from '@apollo/client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAddressCard, faBell, faComment, faHospitalUser, faHouse, faUser, faVial } from '@fortawesome/free-solid-svg-icons';
+import { faAddressCard, faBell, faComment, faDumbbell, faHospitalUser, faHouse, faUser, faVial } from '@fortawesome/free-solid-svg-icons';
 
 //
 // This app requires react-bootstrap and bootstrap installed: 
@@ -30,6 +30,7 @@ import TipList from './components/TipList';
 import EditVital from './components/EditVital';
 import EditTip from './components/EditTip';
 import CreateAlert from './components/CreateAlert';
+import CreateSymptom from './components/CreateSymptom';
 import AlertList from './components/AlertList';
 import Game from './components/Game';
 import Patients from './components/Patients';
@@ -157,9 +158,9 @@ function App() {
                     <Fragment>
                       {isNurse() ?
                         <Fragment>
-                           <Nav.Link className='ms-auto'as={Link} to="/patients" > <FontAwesomeIcon icon={faHospitalUser} /> Patients</Nav.Link>
+                          <Nav.Link className='ms-auto'as={Link} to="/patients" > <FontAwesomeIcon icon={faHospitalUser} /> Patients</Nav.Link>
                           <Nav.Link className='ms-auto'as={Link} to="/alerts" > <FontAwesomeIcon icon={faBell} /> Alert List</Nav.Link>
-                          <Nav.Link className='ms-auto'as={Link} to="/tips" > <FontAwesomeIcon icon={faComment} /> Create Tip</Nav.Link>
+                          <Nav.Link className='ms-auto'as={Link} to="/add-tip" > <FontAwesomeIcon icon={faComment} /> Create Tip</Nav.Link>
                           {/* <Nav.Link className='ms-auto'as={Link} to="/add-vitals" > <FontAwesomeIcon icon={faVial} /> Create Vitals</Nav.Link> */}
                           <Nav.Link className='ms-auto'as={Link} to="/vitals" > <FontAwesomeIcon icon={faVial} /> Vitals</Nav.Link>
                         </Fragment>
@@ -168,8 +169,8 @@ function App() {
                           <Nav.Link className='ms-auto'as={Link} to="/add-vitals" > <FontAwesomeIcon icon={faVial} /> Enter Vitals</Nav.Link>
                           <Nav.Link className='ms-auto'as={Link} to="/add-alert" > <FontAwesomeIcon icon={faBell} /> Submit Alert</Nav.Link>
                           <Nav.Link className='ms-auto'as={Link} to="/tips" > <FontAwesomeIcon icon={faComment} /> Tip List</Nav.Link>
-                          <Nav.Link as={Link} to="/fitness">Fitness</Nav.Link>
-                          <Nav.Link as={Link} to="/add-covid">COVID Test</Nav.Link>
+                          <Nav.Link className='ms-auto'as={Link} to="/symptoms" > <FontAwesomeIcon icon={faBell} /> Create Symptoms</Nav.Link>
+                          <Nav.Link className='ms-auto'as={Link} to="/fitness" > <FontAwesomeIcon icon={faDumbbell} /> Fitness</Nav.Link>
                         </Fragment>
                       }
                       <div className={`nav-link`} style={{ cursor: "pointer" }} onClick={() => logout()}> Logout {user_email} ({user_role}) </div>
@@ -194,6 +195,7 @@ function App() {
             <Route path="/edit-tip/:id" element={<EditTip />} />
             <Route path="/add-alert" element={<CreateAlert />} />
             <Route path="/alerts" element={<AlertList />} />
+            <Route path="/symptoms" element={<CreateSymptom />} />
             <Route path="/fitness" element={<Game />} />
             <Route path="/patients" element={<Patients />} />
             <Route path="/vitals/:firstName/:lastName" element={<UserVitals />} />

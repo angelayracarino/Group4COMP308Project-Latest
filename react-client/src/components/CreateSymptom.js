@@ -2,8 +2,16 @@
 import React, { useState } from 'react';
 import { gql, useMutation } from '@apollo/client';
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+//import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
+//import { Container } from 'react-bootstrap';
+import {
+    Box,
+    Button,
+    Container,
+    FormControl,
+    TextField,
+} from '@mui/material';
 
 
 // Create a gql mutation for Symptom
@@ -36,10 +44,10 @@ function CreateSymptom() {
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
 
-    
+
     const [createSymptom, { data, loading, error }] = useMutation(
-      CREATE_SYMPTOM
-  );
+        CREATE_SYMPTOM
+    );
 
     const predefinedSymptom = [
         'Fever',
@@ -104,53 +112,64 @@ function CreateSymptom() {
 
 
     return (
-        <div className="entryform">
-            <form onSubmit={handleSubmit}>
-              <Form.Group>
-                    <Form.Label>Symptoms</Form.Label>
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    {predefinedSymptom.map((symptom, index) => (
-                        <Form.Check
-                            key={index}
-                            inline
-                            label={symptom}
-                            value={symptom}
-                            type="checkbox"
-                            checked={selectedSymptoms.includes(symptom)}
-                            onChange={handleCheckboxChange}
+        <Container maxWidth="xs">
+        <Box sx={{ mt: 1, display: 'flex', flexWrap: 'wrap' }}></Box>
+                <form 
+                onSubmit={handleSubmit}>
+                    <Form.Group>
+                        <Form.Label>Symptoms</Form.Label>
+                        <div style={{ display: 'flex', flexDirection: 'column' }}>
+                            {predefinedSymptom.map((symptom, index) => (
+                                <Form.Check
+                                    key={index}
+                                    inline
+                                    label={symptom}
+                                    value={symptom}
+                                    type="checkbox"
+                                    checked={selectedSymptoms.includes(symptom)}
+                                    onChange={handleCheckboxChange}
+                                />
+                            ))}
+                        </div>
+                    </Form.Group>
+
+                    <Form.Group>
+                        <Form.Label>Patient Name</Form.Label>
+                        <Form.Control
+                            type="text"
+                            onChange={(e) => setPatient(e.target.value)}
+                            placeholder="Enter patient name"
                         />
-                    ))}
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Date</Form.Label>
+                        <Form.Control
+                            type="date"
+                            onChange={(e) => setDate(e.target.value)}
+                            placeholder="Enter date"
+                        />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Time</Form.Label>
+                        <Form.Control
+                            type="time"
+                            onChange={(e) => setTime(e.target.value)}
+                            placeholder="Enter time"
+                        />
+                    </Form.Group>
+
+                    <Box sx={{mt: 2}} style={{display: 'flex', flexDirection: 'column', textAlign: 'center', width:'100%'}}>
+                    <div>
+                        <Button
+                            type="submit"
+                            color="primary"
+                            variant="contained"
+                            class="button"
+                        > Submit </Button>
                     </div>
-              </Form.Group>
-                <Form.Group>
-                    <Form.Label>Patient Name</Form.Label>
-                    <Form.Control
-                        type="text"
-                        onChange={(e) => setPatient(e.target.value)}
-                        placeholder="Enter patient name"
-                    />
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>Date</Form.Label>
-                    <Form.Control
-                        type="date"
-                        onChange={(e) => setDate(e.target.value)}
-                        placeholder="Enter date"
-                    />
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>Time</Form.Label>
-                    <Form.Control
-                        type="time"
-                        onChange={(e) => setTime(e.target.value)}
-                        placeholder="Enter time"
-                    />
-                </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
+                </Box>
             </form>
-        </div>
+        </Container>
     );
 }
 
