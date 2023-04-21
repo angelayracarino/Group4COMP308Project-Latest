@@ -76,7 +76,7 @@ function Checkup() {
                 <div className="col-md-6 App" style={{ marginLeft: '-20px' }}>
                     <div className="prediction-result">
                         <h1>Prediction</h1>
-                        <h4>The species with the highest prediction is: </h4>
+                        <h4>This is where we are going to determine if you are healthy or in need of a doctor: </h4>
                         <h3 className='species-result'>
                             {prediction && prediction.row1 && prediction.row1.length > 0
                                 ? `${prediction.row1.indexOf(Math.max(...prediction.row1)) === 0
