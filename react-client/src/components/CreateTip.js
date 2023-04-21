@@ -53,7 +53,7 @@ function CreateTip() {
                     });
                     title.value = '';
                     description.value = '';
-                    // navigate('/tips');
+                    navigate('/tips');
                 }}
             >
                 <Form.Group>

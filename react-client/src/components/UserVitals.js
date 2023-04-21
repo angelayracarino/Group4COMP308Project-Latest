@@ -5,7 +5,7 @@ import Table from 'react-bootstrap/Table';
 //import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
 // import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import './list.css';
 import {
@@ -16,19 +16,19 @@ import {
 } from '@mui/material';
 
 const GET_VITALS = gql`
-    query GetVitals {
-        vitals {
-            _id
-            bodyTemperature
-            heartRate
-            bloodPressure
-            respiratoryRate
-            pulseRate
-            date
-            time
-            patient
-        }
+query GetVitals {
+    vitals {
+        _id
+        bodyTemperature
+        heartRate
+        bloodPressure
+        respiratoryRate
+        pulseRate
+        date
+        time
+        patient
     }
+}
 `;
 
 const DELETE_VITALS = gql`
@@ -39,13 +39,21 @@ const DELETE_VITALS = gql`
     }
 `;
 
-const VitalList = () => {
-    const { loading, error, data, refetch } = useQuery(GET_VITALS);
+const VitalList = (prop) => {
+    const { firstName, lastName } = useParams();
+    const { loading, error, data, refetch } = useQuery(GET_VITALS, {
+        variables: {
+            patientName: firstName
+        }
+    });
+
     const [deleteVitals] = useMutation(DELETE_VITALS, {
         onCompleted: () => refetch()
     });
 
     useEffect(() => {
+        console.log(firstName + " " + lastName);
+
         refetch();
     }, [refetch]);
 
@@ -89,7 +97,7 @@ const VitalList = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {data.vitals.map((vital) => (
+                        {data.vitals.filter(vital => vital.patient === `${firstName} ${lastName}`).map((vital) => (
                             <tr key={vital._id}>
                                 <td>{vital.bodyTemperature}</td>
                                 <td>{vital.heartRate}</td>
@@ -105,6 +113,7 @@ const VitalList = () => {
                                 </td>
                             </tr>
                         ))}
+
                     </tbody>
                 </Table>
             </div>

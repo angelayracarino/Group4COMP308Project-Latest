@@ -1,332 +1,527 @@
 [
     {
-        "fever": 1,
-        "cough": 1,
-        "fatigue": 0,
-        "headache": 1,
-        "loss_taste_smell": 0,
-        "sore_throat": 0,
-        "shortness_breath": 0,
-        "muscle_aches": 1,
-        "nausea_vomiting": 1,
-        "diarrhea": 0,
-        "runny_stuffy_nose": 1,
-        "chills": 0,
-        "to_doctor": "yes"
+        "body_temperature": 36.9,
+        "heart_rate": 81,
+        "respiratory_rate": 15,
+        "pulse_rate": 79,
+        "toDoctor": "no"
     },
     {
-        "fever": 0,
-        "cough": 1,
-        "fatigue": 1,
-        "headache": 0,
-        "loss_taste_smell": 1,
-        "sore_throat": 0,
-        "shortness_breath": 1,
-        "muscle_aches": 1,
-        "nausea_vomiting": 0,
-        "diarrhea": 0,
-        "runny_stuffy_nose": 1,
-        "chills": 0,
-        "to_doctor": "yes"
+        "body_temperature": 37.2,
+        "heart_rate": 74,
+        "respiratory_rate": 15,
+        "pulse_rate": 76,
+        "toDoctor": "no"
     },
     {
-        "fever": 1,
-        "cough": 0,
-        "fatigue": 1,
-        "headache": 1,
-        "loss_taste_smell": 0,
-        "sore_throat": 0,
-        "shortness_breath": 0,
-        "muscle_aches": 1,
-        "nausea_vomiting": 1,
-        "diarrhea": 1,
-        "runny_stuffy_nose": 1,
-        "chills": 1,
-        "to_doctor": "yes"
+        "body_temperature": 36.6,
+        "heart_rate": 100,
+        "respiratory_rate": 12,
+        "pulse_rate": 64,
+        "toDoctor": "no"
     },
     {
-        "fever": 0,
-        "cough": 0,
-        "fatigue": 0,
-        "headache": 1,
-        "loss_taste_smell": 1,
-        "sore_throat": 0,
-        "shortness_breath": 1,
-        "muscle_aches": 0,
-        "nausea_vomiting": 1,
-        "diarrhea": 0,
-        "runny_stuffy_nose": 0,
-        "chills": 1,
-        "to_doctor": "yes"
+        "body_temperature": 36.8,
+        "heart_rate": 99,
+        "respiratory_rate": 16,
+        "pulse_rate": 86,
+        "toDoctor": "no"
     },
     {
-        "fever": 1,
-        "cough": 1,
-        "fatigue": 1,
-        "headache": 1,
-        "loss_taste_smell": 1,
-        "sore_throat": 1,
-        "shortness_breath": 1,
-        "muscle_aches": 0,
-        "nausea_vomiting": 0,
-        "diarrhea": 1,
-        "runny_stuffy_nose": 1,
-        "chills": 0,
-        "to_doctor": "yes"
+        "body_temperature": 37,
+        "heart_rate": 75,
+        "respiratory_rate": 16,
+        "pulse_rate": 99,
+        "toDoctor": "no"
     },
     {
-        "fever": 1,
-        "cough": 1,
-        "fatigue": 0,
-        "headache": 1,
-        "loss_taste_smell": 0,
-        "sore_throat": 1,
-        "shortness_breath": 0,
-        "muscle_aches": 0,
-        "nausea_vomiting": 0,
-        "diarrhea": 1,
-        "runny_stuffy_nose": 1,
-        "chills": 1,
-        "to_doctor": "no"
+        "body_temperature": 36.9,
+        "heart_rate": 98,
+        "respiratory_rate": 13,
+        "pulse_rate": 69,
+        "toDoctor": "no"
     },
     {
-        "fever": 0,
-        "cough": 0,
-        "fatigue": 1,
-        "headache": 0,
-        "loss_taste_smell": 1,
-        "sore_throat": 0,
-        "shortness_breath": 1,
-        "muscle_aches": 0,
-        "nausea_vomiting": 1,
-        "diarrhea": 0,
-        "runny_stuffy_nose": 0,
-        "chills": 1,
-        "to_doctor": "yes"
+        "body_temperature": 37.3,
+        "heart_rate": 77,
+        "respiratory_rate": 16,
+        "pulse_rate": 76,
+        "toDoctor": "no"
     },
     {
-        "fever": 1,
-        "cough": 0,
-        "fatigue": 0,
-        "headache": 0,
-        "loss_taste_smell": 0,
-        "sore_throat": 1,
-        "shortness_breath": 1,
-        "muscle_aches": 1,
-        "nausea_vomiting": 0,
-        "diarrhea": 0,
-        "runny_stuffy_nose": 0,
-        "chills": 1,
-        "to_doctor": "yes"
+        "body_temperature": 36.2,
+        "heart_rate": 88,
+        "respiratory_rate": 14,
+        "pulse_rate": 98,
+        "toDoctor": "no"
     },
     {
-        "fever": 1,
-        "cough": 0,
-        "fatigue": 1,
-        "headache": 0,
-        "loss_taste_smell": 1,
-        "sore_throat": 1,
-        "shortness_breath": 1,
-        "muscle_aches": 0,
-        "nausea_vomiting": 0,
-        "diarrhea": 1,
-        "runny_stuffy_nose": 0,
-        "chills": 1,
-        "to_doctor": "yes"
+        "body_temperature": 36.1,
+        "heart_rate": 87,
+        "respiratory_rate": 16,
+        "pulse_rate": 68,
+        "toDoctor": "no"
     },
     {
-        "fever": 0,
-        "cough": 0,
-        "fatigue": 1,
-        "headache": 1,
-        "loss_taste_smell": 1,
-        "sore_throat": 1,
-        "shortness_breath": 0,
-        "muscle_aches": 1,
-        "nausea_vomiting": 1,
-        "diarrhea": 0,
-        "runny_stuffy_nose": 0,
-        "chills": 0,
-        "to_doctor": "yes"
+        "body_temperature": 36.2,
+        "heart_rate": 92,
+        "respiratory_rate": 16,
+        "pulse_rate": 91,
+        "toDoctor": "no"
     },
     {
-        "fever": 1,
-        "cough": 0,
-        "fatigue": 0,
-        "headache": 0,
-        "loss_taste_smell": 1,
-        "sore_throat": 0,
-        "shortness_breath": 0,
-        "muscle_aches": 0,
-        "nausea_vomiting": 0,
-        "diarrhea": 0,
-        "runny_stuffy_nose": 0,
-        "chills": 0,
-        "to_doctor": "yes"
+        "body_temperature": 36.9,
+        "heart_rate": 72,
+        "respiratory_rate": 13,
+        "pulse_rate": 64,
+        "toDoctor": "no"
     },
     {
-        "fever": 1,
-        "cough": 0,
-        "fatigue": 0,
-        "headache": 0,
-        "loss_taste_smell": 0,
-        "sore_throat": 0,
-        "shortness_breath": 0,
-        "muscle_aches": 0,
-        "nausea_vomiting": 0,
-        "diarrhea": 1,
-        "runny_stuffy_nose": 0,
-        "chills": 0,
-        "to_doctor": "no"
+        "body_temperature": 36.6,
+        "heart_rate": 62,
+        "respiratory_rate": 16,
+        "pulse_rate": 62,
+        "toDoctor": "no"
     },
     {
-        "fever": 1,
-        "cough": 0,
-        "fatigue": 0,
-        "headache": 1,
-        "loss_taste_smell": 0,
-        "sore_throat": 0,
-        "shortness_breath": 0,
-        "muscle_aches": 0,
-        "nausea_vomiting": 0,
-        "diarrhea": 1,
-        "runny_stuffy_nose": 1,
-        "chills": 0,
-        "to_doctor": "no"
+        "body_temperature": 36.8,
+        "heart_rate": 64,
+        "respiratory_rate": 16,
+        "pulse_rate": 79,
+        "toDoctor": "no"
     },
     {
-        "fever": 1,
-        "cough": 0,
-        "fatigue": 0,
-        "headache": 0,
-        "loss_taste_smell": 0,
-        "sore_throat": 0,
-        "shortness_breath": 0,
-        "muscle_aches": 0,
-        "nausea_vomiting": 0,
-        "diarrhea": 0,
-        "runny_stuffy_nose": 1,
-        "chills": 0,
-        "to_doctor": "no"
+        "body_temperature": 36.3,
+        "heart_rate": 95,
+        "respiratory_rate": 16,
+        "pulse_rate": 60,
+        "toDoctor": "no"
     },
     {
-        "fever": 1,
-        "cough": 0,
-        "fatigue": 0,
-        "headache": 0,
-        "loss_taste_smell": 0,
-        "sore_throat": 0,
-        "shortness_breath": 0,
-        "muscle_aches": 0,
-        "nausea_vomiting": 0,
-        "diarrhea": 1,
-        "runny_stuffy_nose": 0,
-        "chills": 1,
-        "to_doctor": "no"
+        "body_temperature": 37.1,
+        "heart_rate": 60,
+        "respiratory_rate": 15,
+        "pulse_rate": 83,
+        "toDoctor": "no"
     },
     {
-        "fever": 1,
-        "cough": 0,
-        "fatigue": 0,
-        "headache": 1,
-        "loss_taste_smell": 0,
-        "sore_throat": 0,
-        "shortness_breath": 0,
-        "muscle_aches": 0,
-        "nausea_vomiting": 0,
-        "diarrhea": 0,
-        "runny_stuffy_nose": 1,
-        "chills": 1,
-        "to_doctor": "no"
+        "body_temperature": 36.9,
+        "heart_rate": 95,
+        "respiratory_rate": 15,
+        "pulse_rate": 97,
+        "toDoctor": "no"
     },
     {
-        "fever": 0,
-        "cough": 0,
-        "fatigue": 0,
-        "headache": 1,
-        "loss_taste_smell": 0,
-        "sore_throat": 0,
-        "shortness_breath": 0,
-        "muscle_aches": 0,
-        "nausea_vomiting": 0,
-        "diarrhea": 0,
-        "runny_stuffy_nose": 1,
-        "chills": 0,
-        "to_doctor": "no"
+        "body_temperature": 37.2,
+        "heart_rate": 87,
+        "respiratory_rate": 12,
+        "pulse_rate": 95,
+        "toDoctor": "no"
     },
     {
-        "fever": 0,
-        "cough": 0,
-        "fatigue": 0,
-        "headache": 1,
-        "loss_taste_smell": 0,
-        "sore_throat": 0,
-        "shortness_breath": 0,
-        "muscle_aches": 0,
-        "nausea_vomiting": 0,
-        "diarrhea": 1,
-        "runny_stuffy_nose": 0,
-        "chills": 1,
-        "to_doctor": "no"
+        "body_temperature": 36.5,
+        "heart_rate": 66,
+        "respiratory_rate": 15,
+        "pulse_rate": 91,
+        "toDoctor": "no"
     },
     {
-        "fever": 1,
-        "cough": 0,
-        "fatigue": 0,
-        "headache": 1,
-        "loss_taste_smell": 0,
-        "sore_throat": 0,
-        "shortness_breath": 0,
-        "muscle_aches": 0,
-        "nausea_vomiting": 0,
-        "diarrhea": 0,
-        "runny_stuffy_nose": 1,
-        "chills": 1,
-        "to_doctor": "no"
+        "body_temperature": 37.3,
+        "heart_rate": 60,
+        "respiratory_rate": 14,
+        "pulse_rate": 81,
+        "toDoctor": "no"
     },
     {
-        "fever": 0,
-        "cough": 0,
-        "fatigue": 0,
-        "headache": 1,
-        "loss_taste_smell": 0,
-        "sore_throat": 0,
-        "shortness_breath": 0,
-        "muscle_aches": 0,
-        "nausea_vomiting": 0,
-        "diarrhea": 0,
-        "runny_stuffy_nose": 1,
-        "chills": 0,
-        "to_doctor": "no"
+        "body_temperature": 36.4,
+        "heart_rate": 91,
+        "respiratory_rate": 13,
+        "pulse_rate": 69,
+        "toDoctor": "no"
     },
     {
-        "fever": 0,
-        "cough": 0,
-        "fatigue": 0,
-        "headache": 0,
-        "loss_taste_smell": 0,
-        "sore_throat": 0,
-        "shortness_breath": 0,
-        "muscle_aches": 0,
-        "nausea_vomiting": 0,
-        "diarrhea": 1,
-        "runny_stuffy_nose": 0,
-        "chills": 0,
-        "to_doctor": "no"
+        "body_temperature": 39.9588,
+        "heart_rate": 135,
+        "respiratory_rate": 28,
+        "pulse_rate": 183,
+        "toDoctor": "yes"
     },
     {
-        "fever": 0,
-        "cough": 0,
-        "fatigue": 0,
-        "headache": 1,
-        "loss_taste_smell": 0,
-        "sore_throat": 0,
-        "shortness_breath": 0,
-        "muscle_aches": 0,
-        "nausea_vomiting": 0,
-        "diarrhea": 0,
-        "runny_stuffy_nose": 0,
-        "chills": 1,
-        "to_doctor": "no"
+        "body_temperature": 38.8485,
+        "heart_rate": 196,
+        "respiratory_rate": 29,
+        "pulse_rate": 188,
+        "toDoctor": "yes"
+    },
+    {
+        "body_temperature": 38.9476,
+        "heart_rate": 104,
+        "respiratory_rate": 26,
+        "pulse_rate": 170,
+        "toDoctor": "yes"
+    },
+    {
+        "body_temperature": 38.9708,
+        "heart_rate": 129,
+        "respiratory_rate": 28,
+        "pulse_rate": 175,
+        "toDoctor": "yes"
+    },
+    {
+        "body_temperature": 39.354,
+        "heart_rate": 108,
+        "respiratory_rate": 23,
+        "pulse_rate": 177,
+        "toDoctor": "yes"
+    },
+    {
+        "body_temperature": 39.9324,
+        "heart_rate": 200,
+        "respiratory_rate": 27,
+        "pulse_rate": 191,
+        "toDoctor": "yes"
+    },
+    {
+        "body_temperature": 38.6761,
+        "heart_rate": 182,
+        "respiratory_rate": 25,
+        "pulse_rate": 163,
+        "toDoctor": "yes"
+    },
+    {
+        "body_temperature": 38.1393,
+        "heart_rate": 194,
+        "respiratory_rate": 24,
+        "pulse_rate": 171,
+        "toDoctor": "yes"
+    },
+    {
+        "body_temperature": 38.3794,
+        "heart_rate": 199,
+        "respiratory_rate": 26,
+        "pulse_rate": 155,
+        "toDoctor": "yes"
+    },
+    {
+        "body_temperature": 38.4193,
+        "heart_rate": 156,
+        "respiratory_rate": 30,
+        "pulse_rate": 143,
+        "toDoctor": "yes"
+    },
+    {
+        "body_temperature": 34.6751,
+        "heart_rate": 44,
+        "respiratory_rate": 13,
+        "pulse_rate": 30,
+        "toDoctor": "yes"
+    },
+    {
+        "body_temperature": 34.3362,
+        "heart_rate": 55,
+        "respiratory_rate": 19,
+        "pulse_rate": 36,
+        "toDoctor": "yes"
+    },
+    {
+        "body_temperature": 34.2303,
+        "heart_rate": 37,
+        "respiratory_rate": 17,
+        "pulse_rate": 53,
+        "toDoctor": "yes"
+    },
+    {
+        "body_temperature": 34.2507,
+        "heart_rate": 33,
+        "respiratory_rate": 17,
+        "pulse_rate": 56,
+        "toDoctor": "yes"
+    },
+    {
+        "body_temperature": 34.6199,
+        "heart_rate": 49,
+        "respiratory_rate": 12,
+        "pulse_rate": 43,
+        "toDoctor": "yes"
+    },
+    {
+        "body_temperature": 32.1239,
+        "heart_rate": 30,
+        "respiratory_rate": 20,
+        "pulse_rate": 46,
+        "toDoctor": "yes"
+    },
+    {
+        "body_temperature": 32.5628,
+        "heart_rate": 51,
+        "respiratory_rate": 19,
+        "pulse_rate": 53,
+        "toDoctor": "yes"
+    },
+    {
+        "body_temperature": 33.8806,
+        "heart_rate": 36,
+        "respiratory_rate": 12,
+        "pulse_rate": 44,
+        "toDoctor": "yes"
+    },
+    {
+        "body_temperature": 32.0167,
+        "heart_rate": 58,
+        "respiratory_rate": 13,
+        "pulse_rate": 52,
+        "toDoctor": "yes"
+    },
+    {
+        "body_temperature": 34.2741,
+        "heart_rate": 48,
+        "respiratory_rate": 20,
+        "pulse_rate": 42,
+        "toDoctor": "yes"
+    },
+    {
+        "bodyTemperature": 36.8,
+        "heartRate": 73,
+        "respiratory_rate": 12,
+        "pulse_rate": 87,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 36.2,
+        "heartRate": 71,
+        "respiratory_rate": 12,
+        "pulse_rate": 75,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 36.2,
+        "heartRate": 67,
+        "respiratory_rate": 15,
+        "pulse_rate": 66,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 37.5,
+        "heartRate": 89,
+        "respiratory_rate": 13,
+        "pulse_rate": 72,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 37.1,
+        "heartRate": 63,
+        "respiratory_rate": 13,
+        "pulse_rate": 75,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 36.8,
+        "heartRate": 60,
+        "respiratory_rate": 13,
+        "pulse_rate": 60,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 37.4,
+        "heartRate": 73,
+        "respiratory_rate": 15,
+        "pulse_rate": 91,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 37.1,
+        "heartRate": 68,
+        "respiratory_rate": 12,
+        "pulse_rate": 70,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 36.5,
+        "heartRate": 63,
+        "respiratory_rate": 13,
+        "pulse_rate": 83,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 37.4,
+        "heartRate": 61,
+        "respiratory_rate": 13,
+        "pulse_rate": 88,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 36.4,
+        "heartRate": 100,
+        "respiratory_rate": 13,
+        "pulse_rate": 64,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 37.2,
+        "heartRate": 62,
+        "respiratory_rate": 12,
+        "pulse_rate": 80,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 36.2,
+        "heartRate": 64,
+        "respiratory_rate": 16,
+        "pulse_rate": 92,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 36.8,
+        "heartRate": 79,
+        "respiratory_rate": 12,
+        "pulse_rate": 93,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 37.5,
+        "heartRate": 89,
+        "respiratory_rate": 12,
+        "pulse_rate": 65,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 37.2,
+        "heartRate": 78,
+        "respiratory_rate": 16,
+        "pulse_rate": 89,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 36.9,
+        "heartRate": 93,
+        "respiratory_rate": 13,
+        "pulse_rate": 67,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 36.4,
+        "heartRate": 88,
+        "respiratory_rate": 16,
+        "pulse_rate": 84,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 36.4,
+        "heartRate": 93,
+        "respiratory_rate": 14,
+        "pulse_rate": 78,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 36.8,
+        "heartRate": 93,
+        "respiratory_rate": 14,
+        "pulse_rate": 71,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 37.2,
+        "heartRate": 76,
+        "respiratory_rate": 12,
+        "pulse_rate": 65,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 36.9,
+        "heartRate": 95,
+        "respiratory_rate": 15,
+        "pulse_rate": 62,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 37,
+        "heartRate": 88,
+        "respiratory_rate": 16,
+        "pulse_rate": 64,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 36.7,
+        "heartRate": 95,
+        "respiratory_rate": 13,
+        "pulse_rate": 72,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 36.8,
+        "heartRate": 61,
+        "respiratory_rate": 12,
+        "pulse_rate": 72,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 37.3,
+        "heartRate": 92,
+        "respiratory_rate": 13,
+        "pulse_rate": 98,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 37.4,
+        "heartRate": 100,
+        "respiratory_rate": 15,
+        "pulse_rate": 84,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 36.1,
+        "heartRate": 87,
+        "respiratory_rate": 14,
+        "pulse_rate": 60,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 36.2,
+        "heartRate": 62,
+        "respiratory_rate": 16,
+        "pulse_rate": 87,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 37.5,
+        "heartRate": 80,
+        "respiratory_rate": 15,
+        "pulse_rate": 72,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 37.3,
+        "heartRate": 68,
+        "respiratory_rate": 14,
+        "pulse_rate": 75,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 37.3,
+        "heartRate": 78,
+        "respiratory_rate": 16,
+        "pulse_rate": 90,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 36.2,
+        "heartRate": 81,
+        "respiratory_rate": 12,
+        "pulse_rate": 90,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 36.8,
+        "heartRate": 71,
+        "respiratory_rate": 16,
+        "pulse_rate": 69,
+        "toDoctor": "no"
+    },
+    {
+        "bodyTemperature": 36.2,
+        "heartRate": 76,
+        "respiratory_rate": 13,
+        "pulse_rate": 65,
+        "toDoctor": "no"
     }
 ]

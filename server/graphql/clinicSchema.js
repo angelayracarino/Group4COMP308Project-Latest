@@ -173,10 +173,10 @@ const symptomsType = new GraphQLObjectType({
 const PayloadType = new GraphQLObjectType({
   name: 'Payload',
   fields: () => ({
-      _id: { type: GraphQLID},
-      email: { type: GraphQLString },
-      role: { type: GraphQLString },
-      token: { type: GraphQLString }
+    _id: { type: GraphQLID },
+    email: { type: GraphQLString },
+    role: { type: GraphQLString },
+    token: { type: GraphQLString }
   })
 });
 
@@ -186,20 +186,19 @@ const ClearCookieToken = (context) => {
 
 const GetPayloadFromCookies = async (context) => {
   if (!context.req.cookies.token) {
-      throw new Error('Error retrieving token from cookie');
+    throw new Error('Error retrieving token from cookie');
   }
   var payload;
   try {
-      payload = jwt.verify(context.req.cookies.token, JWT_SECRET);
+    payload = jwt.verify(context.req.cookies.token, JWT_SECRET);
   }
-  catch (error){
-      if (error instanceof jwt.JsonWebTokenError) {
-          throw new Error('Json Web Token Error');
-      }
-      else
-      {
-          throw new Error('Error verifying token');
-      }
+  catch (error) {
+    if (error instanceof jwt.JsonWebTokenError) {
+      throw new Error('Json Web Token Error');
+    }
+    else {
+      throw new Error('Error verifying token');
+    }
   }
   return payload;
 }
@@ -311,78 +310,93 @@ const queryType = new GraphQLObjectType({
           }
           return vitalInfo
         },
-        users: {
-          type: new GraphQLList(userType),
-          resolve: function () {
-            const users = UserModel.find().exec()
-            if (!users) {
-              throw new Error('Error')
-            }
-            return users;
+      },
+      vitalByName: {
+        type: new GraphQLList(vitalType),
+        args: {
+          patient: {
+            type: GraphQLString
           }
         },
-        user: {
-          type: userType,
-          args: {
-            id: {
-              name: '_id',
-              type: GraphQLString
-            }
-          },
-          resolve: function (root, params) {
-            const userInfo = UserModel.findById(params.id).exec()
-            if (!userInfo) {
-              throw new Error('Cannot find user')
-            }
-            return userInfo;
+        resolve: function (root, params) {
+          const vitals = VitalModel.find({ patient: params.patient })
+          if (!vitals) {
+            throw new Error('Error')
+          }
+          return vitals
+        }
+      },      
+      users: {
+        type: new GraphQLList(userType),
+        resolve: function () {
+          const users = UserModel.find().exec()
+          if (!users) {
+            throw new Error('Error')
+          }
+          return users;
+        }
+      },
+      user: {
+        type: userType,
+        args: {
+          id: {
+            name: '_id',
+            type: GraphQLString
           }
         },
-        nurses:{
-            type: new GraphQLList(userType),
-            resolve: async function () {
-                const nurses = await UserModel.find({role: 'nurse'})
-                if (!nurses) {
-                  throw new Error('Error locating role for user')
-                }
-                return nurses;
-            }
+        resolve: function (root, params) {
+          const userInfo = UserModel.findById(params.id).exec()
+          if (!userInfo) {
+            throw new Error('Cannot find user')
+          }
+          return userInfo;
+        }
+      },
+      nurses: {
+        type: new GraphQLList(userType),
+        resolve: async function () {
+          const nurses = await UserModel.find({ role: 'nurse' })
+          if (!nurses) {
+            throw new Error('Error locating role for user')
+          }
+          return nurses;
+        }
+      },
+      patients: {
+        type: new GraphQLList(userType),
+        resolve: async function () {
+          const patients = await UserModel.find({ role: 'patient' });
+          if (!patients) {
+            throw new Error('Error locating role for patient')
+          }
+          return patients;
+        }
+      },
+      patient: {
+        type: userType,
+        args: {
+          id: {
+            name: '_id',
+            type: GraphQLString
+          }
         },
-        patients:{
-            type: new GraphQLList(userType),
-            resolve: async function () {
-                const patients = await UserModel.find({role: 'patient'});
-                if (!patients) {
-                  throw new Error('Error locating role for patient')
-                }
-                return patients;
-            }
-        },
-        patient: {
-            type: userType,
-            args: {
-                id: {
-                    name: '_id',
-                    type: GraphQLString
-                }
-            },
-            resolve: async function (root, params) {
-                const patientInfo = await UserModel.findById(params.id);
-                if (!patientInfo){
-                    throw new Error('Cannot find patient');
-                }
-                return patientInfo;
-            }
-        },
-        payload: {
-            type: PayloadType,
-            resolve: async function (root, params, context) {
-                try {
-                    return await GetPayloadFromCookies(context);
-                }
-                catch (error) {
-                    throw new Error(error);
-                }
-            }
+        resolve: async function (root, params) {
+          const patientInfo = await UserModel.findById(params.id);
+          if (!patientInfo) {
+            throw new Error('Cannot find patient');
+          }
+          return patientInfo;
+        }
+      },
+      payload: {
+        type: PayloadType,
+        resolve: async function (root, params, context) {
+          try {
+            return await GetPayloadFromCookies(context);
+          }
+          catch (error) {
+            throw new Error(error);
+          }
         }
       }
     }
@@ -442,7 +456,7 @@ const mutation = new GraphQLObjectType({
           if (!userInfo) {
             throw new Error('Error - user not found')
           }
-          else{
+          else {
             console.log(userInfo.password)
             // check if the password is correct
             const isMatched = await bcrypt.compare(params.password, userInfo.password);
@@ -461,17 +475,17 @@ const mutation = new GraphQLObjectType({
               console.log('registered token:', token)
 
               // set the cookie as the token string, with a similar max age as the token
-            // here, the max age is in milliseconds
-            context.res.cookie('token', token, { maxAge: jwtExpirySeconds * 1000, httpOnly: true });
-            console.log('cookie set with:', userInfo.email)
-            const payload = {
-              _id: userInfo._id,
-              email: userInfo.email,
-              role: userInfo.role,
-              token: token,
-            }
-            console.log(payload);
-            return payload;
+              // here, the max age is in milliseconds
+              context.res.cookie('token', token, { maxAge: jwtExpirySeconds * 1000, httpOnly: true });
+              console.log('cookie set with:', userInfo.email)
+              const payload = {
+                _id: userInfo._id,
+                email: userInfo.email,
+                role: userInfo.role,
+                token: token,
+              }
+              console.log(payload);
+              return payload;
             }
           }
         } //end of resolver function
@@ -479,22 +493,22 @@ const mutation = new GraphQLObjectType({
       // a mutation to log the student out
       logOut: {
         type: GraphQLString,
-                resolve: async (root, params, context) => {
-                    if (context.req.cookies.token !== undefined) {
-                        try {
-                            const payload = await GetPayloadFromCookies(context);
-                            // clear cookie
-                            ClearCookieToken(context);
-                            return payload.email;
-                        }
-                        catch (error) {
-                            throw new Error(error);
-                        }
-                    }
-                    else{
-                        return 'Already logged out'
-                    }
-                }
+        resolve: async (root, params, context) => {
+          if (context.req.cookies.token !== undefined) {
+            try {
+              const payload = await GetPayloadFromCookies(context);
+              // clear cookie
+              ClearCookieToken(context);
+              return payload.email;
+            }
+            catch (error) {
+              throw new Error(error);
+            }
+          }
+          else {
+            return 'Already logged out'
+          }
+        }
       },
       //
       createVital: {
@@ -551,6 +565,19 @@ const mutation = new GraphQLObjectType({
           } catch (err) {
             console.log(err)
           }
+        }
+      },
+      deleteVital: {
+        type: vitalType,
+        args: {
+          id: { type: GraphQLNonNull(GraphQLString) },
+        },
+        resolve: function (root, params, context) {
+          const deleteVital = VitalModel.findByIdAndRemove(params.id).exec();
+          if (!deleteVital) {
+            throw new Error('Error')
+          }
+          return deleteVital;
         }
       },
       createTip: {
@@ -636,30 +663,30 @@ const mutation = new GraphQLObjectType({
           return deleteAlert;
         }
       },
-        createSymptom: {
-          type: symptomsType,
-          args: {
-            selectedSymptom: { type: GraphQLList(GraphQLString) },
-            patient: { type: GraphQLNonNull(GraphQLString) },
-            date: { type: GraphQLNonNull(GraphQLString) },
-            time: { type: GraphQLNonNull(GraphQLString) }
-          },
-          resolve: async function (root, { selectedSymptom, patient, date, time }) {
-            try {
-              const symptom = new SymptomModel({
-                selectedSymptom,
-                patient,
-                date,
-                time
-              });
-              const newSymptom = await symptom.save();
-              return newSymptom;
-            } catch (err) {
-              console.log(err);
-              throw new Error('Error creating new symptom');
-              }
-            }
+      createSymptom: {
+        type: symptomsType,
+        args: {
+          selectedSymptom: { type: GraphQLList(GraphQLString) },
+          patient: { type: GraphQLNonNull(GraphQLString) },
+          date: { type: GraphQLNonNull(GraphQLString) },
+          time: { type: GraphQLNonNull(GraphQLString) }
         },
+        resolve: async function (root, { selectedSymptom, patient, date, time }) {
+          try {
+            const symptom = new SymptomModel({
+              selectedSymptom,
+              patient,
+              date,
+              time
+            });
+            const newSymptom = await symptom.save();
+            return newSymptom;
+          } catch (err) {
+            console.log(err);
+            throw new Error('Error creating new symptom');
+          }
+        }
+      },
     }
   }
 });

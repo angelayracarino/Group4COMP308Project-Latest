@@ -10,8 +10,6 @@ function Checkup() {
     const [data, setData] = useState({
         body_temperature: '',
         heart_rate: '',
-        systolic: '',
-        diastolic: '',
         respiratory_rate: '',
         pulse_rate: ''
     });
@@ -59,14 +57,6 @@ function Checkup() {
                             <Form.Group>
                                 <Form.Label>Heart Rate</Form.Label>
                                 <Form.Control type="number" name="heart_rate" id="heart_rate" placeholder="Enter heart rate" value={data.heart_rate} onChange={onChange} />
-                            </Form.Group>
-                            <Form.Group>
-                                <Form.Label>Systolic</Form.Label>
-                                <Form.Control type="number" name="systolic" id="systolic" placeholder="Enter systolic" value={data.systolic} onChange={onChange} />
-                            </Form.Group>
-                            <Form.Group>
-                                <Form.Label>Diastolic</Form.Label>
-                                <Form.Control type="number" name="diastolic" id="diastolic" placeholder="Enter diastolic" value={data.diastolic} onChange={onChange} />
                             </Form.Group>
                             <Form.Group>
                                 <Form.Label>Respiratory Rate</Form.Label>

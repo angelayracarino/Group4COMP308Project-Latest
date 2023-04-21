@@ -5,13 +5,11 @@ import "../App.css";
 import fit1 from "../images/fitness.png";
 
 // Exercise data with name and duration
-const exercisesData = [
-    { name: 'Push-ups', duration: 30 },
-    { name: 'Jumping jacks', duration: 60 },
-    { name: 'Plank', duration: 45 },
-    { name: 'Squats', duration: 30 },
-    { name: 'Burpees', duration: 60 },
-];
+const exercisesData = [{ name: 'Push-ups', duration: 30, gifUrl: 'https://media.giphy.com/media/g37mGHexrv5ug/giphy.gif' },
+{ name: 'Jumping jacks', duration: 60, gifUrl: 'https://media.giphy.com/media/L6pR869dhwG6Q/giphy.gif' }, 
+{ name: 'Plank', duration: 45, gifUrl: 'https://media.giphy.com/media/qmtZWoxt5jYvEi9ovV/giphy.gif' }, 
+{ name: 'Squats', duration: 30, gifUrl: 'https://media.giphy.com/media/xUOwFYXGggEpEp0vvO/giphy.gif' }, 
+{ name: 'Burpees', duration: 60, gifUrl: 'https://media.giphy.com/media/l41YgS3UPP5Qjwr8Q/giphy.gif' },];
 
 const messages = [
     "Push yourself, because no one else is going to do it for you.",
@@ -105,9 +103,64 @@ const FitnessGame = () => {
     };
 
     return (
-        <div>
-            <div>
-          <img src={fit1} alt="Welcome Banner" className="fit1" />
+        <div className="game-container">
+            {!startGame && !gameOver && (
+                <Button variant="success" size="lg" onClick={handleStartGame}>
+                    Start Game
+                </Button>
+            )}
+            {startGame && !gameOver && !isPaused && (
+                <div className="game">
+                    <h2>{message}</h2>
+                    <h2 className="exercise-name">
+                        Exercise: {exercisesData[exerciseIndex]?.name}
+                    </h2>
+                    <h2 className="time-remaining">
+                        Time Remaining: {timeRemaining} seconds
+                    </h2>
+                    <h2 className="exercise-counter">
+                        Exercise Counter: {exerciseCounter} / {exercisesData.length}
+                    </h2>
+                    <Button variant="danger" size="lg" onClick={handleStopGame}>
+                        Stop
+                    </Button>
+                    <img src={exercisesData[exerciseIndex]?.gifUrl} alt="exercise" />
+                </div>
+            )}
+            {startGame && !gameOver && isPaused && (
+                <div className="game">
+                    <h2>{message}</h2>
+                    <h2 className="exercise-name">
+                        Exercise: {exercisesData[exerciseIndex]?.name}
+                    </h2>
+                    <h2 className="time-remaining">
+                        Time Remaining: {timeRemaining} seconds (Paused)
+                    </h2>
+                    <h2 className="exercise-counter">
+                        Exercise Counter: {exerciseCounter} / {exercisesData.length}
+                    </h2>
+                    <Button variant="warning" size="lg" onClick={handleResumeGame}>
+                        Resume
+                    </Button>
+                    <Button variant="primary" size="lg" onClick={handleRestartGame}>
+                        Restart Game
+                    </Button>
+                    <img src={exercisesData[exerciseIndex]?.gifUrl} alt="exercise" />
+                </div>
+            )}
+            {gameOver && (
+                <div className="game">
+                    <h2 className="congratulations">
+                        Congratulations! You've completed the fitness game!
+                    </h2>
+                    <h2 className="total-exercises">
+                        Total Exercises Completed: All {exercisesData.length} exercises!
+                    </h2>
+                    <Button variant="primary" size="lg" onClick={handleRestartGame}>
+                        Restart Game
+                    </Button>
+                </div>
+            )}
         </div>
             <div className="game-container">
                 {!startGame && !gameOver && (
