@@ -32,6 +32,8 @@ import EditTip from './components/EditTip';
 import CreateAlert from './components/CreateAlert';
 import AlertList from './components/AlertList';
 import Game from './components/Game';
+import Patients from './components/Patients';
+import UserVitals from './components/UserVitals';
 import {
   useAuthToken,
   useAuthUserToken,
@@ -156,8 +158,8 @@ function App() {
                            <Nav.Link className='ms-auto'as={Link} to="/patients" > <FontAwesomeIcon icon={faHospitalUser} /> Patients</Nav.Link>
                           <Nav.Link className='ms-auto'as={Link} to="/alerts" > <FontAwesomeIcon icon={faBell} /> Alert List</Nav.Link>
                           <Nav.Link className='ms-auto'as={Link} to="/tips" > <FontAwesomeIcon icon={faComment} /> Create Tip</Nav.Link>
-                          <Nav.Link className='ms-auto'as={Link} to="/add-vitals" > <FontAwesomeIcon icon={faVial} /> Create Vitals</Nav.Link>
-                          <Nav.Link className='ms-auto'as={Link} to="/vitals" > <FontAwesomeIcon icon={faVial} /> Vitals List</Nav.Link>
+                          {/* <Nav.Link className='ms-auto'as={Link} to="/add-vitals" > <FontAwesomeIcon icon={faVial} /> Create Vitals</Nav.Link> */}
+                          <Nav.Link className='ms-auto'as={Link} to="/vitals" > <FontAwesomeIcon icon={faVial} /> Vitals</Nav.Link>
                         </Fragment>
                         :
                         <Fragment>
@@ -190,6 +192,8 @@ function App() {
             <Route path="/add-alert" element={<CreateAlert />} />
             <Route path="/alerts" element={<AlertList />} />
             <Route path="/fitness" element={<Game />} />
+            <Route path="/patients" element={<Patients />} />
+            <Route path="/vitals/:firstName/:lastName" element={<UserVitals />} />
             <Route path="/create/record/:patientIdnew" element={<CreateVital nurseId={data} />} />
           </Routes>
         </div>

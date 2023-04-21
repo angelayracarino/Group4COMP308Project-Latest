@@ -91,7 +91,7 @@ const CreateVital = () => {
                     time.value = '';
                     patient.value = '';
 
-                    navigate('/vitals');
+                    navigate('/');
                 }}
             >
                 <Form.Group>
