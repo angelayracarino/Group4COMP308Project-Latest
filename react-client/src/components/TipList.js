@@ -6,6 +6,8 @@ import Table from 'react-bootstrap/Table';
 import Spinner from 'react-bootstrap/Spinner';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import './list.css';
 
 const GET_TIPS = gql`
     query GetTips {
@@ -48,6 +50,7 @@ function TipList() {
     }
 
     return (
+        <Container>
         <div className="tipList">
             <h1>Tip List</h1>
             <Table striped bordered hover>
@@ -72,6 +75,7 @@ function TipList() {
                 </tbody>
             </Table>
         </div>
+        </Container>
     );
 }
 

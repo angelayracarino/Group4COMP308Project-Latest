@@ -1,0 +1,195 @@
+.alertList {
+    margin: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.alertList h1 {
+    color: #9e664d; /* Updated color */
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center; /* Added to center the header */
+}
+
+.alertList Table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.alertList Table thead tr {
+    background-color: #d7baad; /* Updated color */
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.alertList Table tbody tr:nth-child(even) {
+    background-color: #e2e8f0; /* Updated color */
+}
+
+.alertList Table tbody tr:nth-child(odd) {
+    background-color: #edf2f7; /* Updated color */
+}
+
+.alertList Table tbody tr:hover {
+    background-color: #cbd5e0; /* Updated color */
+    cursor: pointer;
+}
+
+.alertList Table tbody tr td {
+    padding: 10px;
+}
+
+.alertList Button {
+    background-color: #e53e3e;
+    border-color: #e53e3e;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 6px 12px;
+}
+
+.alertList Button:hover {
+    background-color: #c53030;
+    border-color: #c53030;
+}
+
+.vitalList {
+    margin: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.vitalList h1 {
+    color: #9e664d;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.vitalList Table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.vitalList Table thead tr {
+    background-color: #d7baad;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.vitalList Table tbody tr:nth-child(even) {
+    background-color: #e2e8f0;
+}
+
+.vitalList Table tbody tr:nth-child(odd) {
+    background-color: #edf2f7;
+}
+
+.vitalList Table tbody tr:hover {
+    background-color: #cbd5e0;
+    cursor: pointer;
+}
+
+.vitalList Table tbody tr td {
+    padding: 10px;
+}
+
+.vitalList Button {
+    font-weight: 600;
+    font-size: 14px;
+    padding: 6px 12px;
+}
+
+.vitalList Button.variant-danger {
+    background-color: #e53e3e;
+    border-color: #e53e3e;
+    color: #ffffff;
+}
+
+.vitalList Button.variant-danger:hover {
+    background-color: #c53030;
+    border-color: #c53030;
+}
+
+.vitalList Button.variant-primary {
+    background-color: #4299e1;
+    border-color: #4299e1;
+    color: #ffffff;
+}
+
+.vitalList Button.variant-primary:hover {
+    background-color: #2b6cb0;
+    border-color: #2b6cb0;
+}
+
+.tipList {
+    margin: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.tipList h1 {
+    color: #9e664d;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.tipList Table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tipList Table thead tr {
+    background-color: #d7baad;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.tipList Table tbody tr:nth-child(even) {
+    background-color: #e2e8f0;
+}
+
+.tipList Table tbody tr:nth-child(odd) {
+    background-color: #edf2f7;
+}
+
+.tipList Table tbody tr:hover {
+    background-color: #cbd5e0;
+    cursor: pointer;
+}
+
+.tipList Table tbody tr td {
+    padding: 10px;
+}
+
+.tipList Button {
+    font-weight: 600;
+    font-size: 14px;
+    padding: 6px 12px;
+}
+
+.tipList Button.variant-danger {
+    background-color: #e53e3e;
+    border-color: #e53e3e;
+    color: #ffffff;
+}
+
+.tipList Button.variant-danger:hover {
+    background-color: #c53030;
+    border-color: #c53030;
+}
+
+.tipList Button.variant-primary {
+    background-color: #4299e1;
+    border-color: #4299e1;
+    color: #ffffff;
+}
+
+.tipList Button.variant-primary:hover {
+    background-color: #2b6cb0;
+    border-color: #2b6cb0;
+}
